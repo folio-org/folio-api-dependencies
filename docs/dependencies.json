@@ -2116,6 +2116,10 @@
         "version": "10.0"
       },
       {
+        "id": "item-storage",
+        "version": "11.0"
+      },
+      {
         "id": "loan-types",
         "version": "2.0"
       },
@@ -7051,6 +7055,10 @@
       {
         "id": "item-storage",
         "version": "10.0"
+      },
+      {
+        "id": "item-storage",
+        "version": "11.0"
       },
       {
         "id": "loan-types",
