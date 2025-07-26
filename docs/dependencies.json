@@ -935,7 +935,7 @@
     "provides": [
       {
         "id": "inventory",
-        "version": "14.3"
+        "version": "14.4"
       },
       {
         "id": "inventory-batch",
@@ -951,11 +951,11 @@
       },
       {
         "id": "inventory-move",
-        "version": "0.2"
+        "version": "0.3"
       },
       {
         "id": "inventory-update-ownership",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "_tenant",
@@ -1087,7 +1087,7 @@
     "provides": [
       {
         "id": "item-storage-dereferenced",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "item-storage",
@@ -1287,15 +1287,15 @@
       },
       {
         "id": "inventory-hierarchy",
-        "version": "0.7"
+        "version": "0.8"
       },
       {
         "id": "inventory-view",
-        "version": "3.1"
+        "version": "3.2"
       },
       {
         "id": "inventory-view-instance-set",
-        "version": "3.1"
+        "version": "3.2"
       },
       {
         "id": "instance-reindex",
@@ -2911,17 +2911,13 @@
       },
       {
         "id": "rtac-batch",
-        "version": "1.1"
+        "version": "1.2"
       }
     ],
     "requires": [
       {
         "id": "inventory-hierarchy",
-        "version": "0.5"
-      },
-      {
-        "id": "inventory-hierarchy",
-        "version": "0.6"
+        "version": "0.8"
       },
       {
         "id": "loan-storage",
@@ -10226,6 +10222,10 @@
       {
         "id": "users-bl",
         "version": "6.0"
+      },
+      {
+        "id": "okapi",
+        "version": "1.9"
       }
     ],
     "optional": [
