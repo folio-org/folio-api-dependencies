@@ -78,9 +78,85 @@ const Utils = {
             }, {});
     },
 
+    getMajorVersion(version) {
+        if (!version || version === '?' || version === 'n/a') return null;
+        const match = version.match(/^(\d+)/);
+        return match ? parseInt(match[1], 10) : null;
+    },
+
+    // Check for version compatibility issues
+    getVersionMismatchType(requiredVersions, providedVersions) {
+        if (!providedVersions.length) return 'no-provider';
+
+        // Check for exact matches first
+        const hasExactMatch = requiredVersions.some(v => providedVersions.includes(v));
+        if (hasExactMatch) return 'compatible';
+
+        // Extract major versions
+        const requiredMajors = requiredVersions
+            .map(v => this.getMajorVersion(v))
+            .filter(v => v !== null);
+        const providedMajors = providedVersions
+            .map(v => this.getMajorVersion(v))
+            .filter(v => v !== null);
+
+        if (requiredMajors.length === 0 || providedMajors.length === 0) {
+            return 'version-format-issue';
+        }
+
+        // Check for major version compatibility
+        const hasMajorMatch = requiredMajors.some(reqMajor =>
+            providedMajors.some(provMajor => reqMajor === provMajor)
+        );
+
+        if (!hasMajorMatch) return 'major-mismatch';
+
+        // Major versions match but exact versions don't
+        return 'minor-mismatch';
+    },
+
+    // Legacy function for backward compatibility
     isMismatch(requiredVersions, providedVersions) {
-        if (!providedVersions.length) return true;
-        return !requiredVersions.some(v => providedVersions.includes(v));
+        const mismatchType = this.getVersionMismatchType(requiredVersions, providedVersions);
+        return mismatchType === 'major-mismatch';
+    },
+
+    // Get user-friendly mismatch message and styling
+    getMismatchDisplay(mismatchType) {
+        switch (mismatchType) {
+            case 'compatible':
+                return null; // No warning needed
+            case 'major-mismatch':
+                return {
+                    icon: '⚠️',
+                    text: 'major mismatch',
+                    color: '#dc3545',
+                    severity: 'error'
+                };
+            case 'minor-mismatch':
+                return {
+                    icon: '⚡',
+                    text: 'minor mismatch',
+                    color: '#ed930f',
+                    severity: 'warning'
+                };
+            case 'no-provider':
+                return {
+                    icon: '❌',
+                    text: 'no provider found',
+                    color: '#dc3545',
+                    severity: 'error'
+                };
+            case 'version-format-issue':
+                return {
+                    icon: '❓',
+                    text: 'version format issue',
+                    color: '#6c757d',
+                    severity: 'info'
+                };
+            default:
+                return null;
+        }
     }
 };
 
@@ -538,6 +614,7 @@ const ApiUsageTableManager = {
 // API management
 const ApiManager = {
     currentApiData: null, // Store current API data for export
+    showVersionMismatch: false, // Default to disabled
 
     selectApi(api) {
         const record = AppState.globalApiIndex.get(api.trim());
@@ -553,6 +630,39 @@ const ApiManager = {
         }
     },
 
+    initVersionMismatchToggle() {
+        const toggleBtn = document.getElementById('toggle-version-warnings');
+        if (toggleBtn) {
+            // Add event listener
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showVersionMismatch = !this.showVersionMismatch;
+
+                // Update button appearance
+                this.updateToggleButton(toggleBtn);
+
+                // Re-render current API if one is selected
+                if (this.currentApiData) {
+                    this.renderApiUsage(this.currentApiData.api, this.currentApiData.record);
+                }
+            });
+        }
+    },
+
+    updateToggleButton(button) {
+        if (this.showVersionMismatch) {
+            button.textContent = '⚠️ Hide Warnings';
+            button.style.backgroundColor = '#ffc107';
+            button.style.color = '#000';
+            button.title = 'Hide version mismatch warnings';
+        } else {
+            button.textContent = '👁️ Show Warnings';
+            button.style.backgroundColor = '#6c757d';
+            button.style.color = '#fff';
+            button.title = 'Show version mismatch warnings';
+        }
+    },
+
     renderApiUsage(apiId, data) {
         const div = AppState.elements.apiDetails;
         if (!div || !data) {
@@ -563,9 +673,21 @@ const ApiManager = {
         let html = `
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;">
                 <h3 style="margin: 0;">API: <code>${apiId}</code></h3>
-                <button id="export-api-csv" class="export-csv-btn" title="Export API usage data to CSV">
-                    📊 Export CSV
-                </button>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <button id="toggle-version-warnings" style="
+                        padding: 6px 12px; 
+                        border: none; 
+                        border-radius: 4px; 
+                        cursor: pointer; 
+                        font-size: 14px;
+                        transition: all 0.2s ease;
+                    " title="${this.showVersionMismatch ? 'Hide version mismatch warnings' : 'Show version mismatch warnings'}">
+                        ${this.showVersionMismatch ? '⚠️ Hide Warnings' : '👁️ Show Warnings'}
+                    </button>
+                    <button id="export-api-csv" class="export-csv-btn" title="Export API usage data to CSV">
+                        📊 Export CSV
+                    </button>
+                </div>
             </div>
         `;
 
@@ -586,12 +708,23 @@ const ApiManager = {
             html += `<li><em>No consumers</em></li>`;
         } else {
             const groupedRequires = Utils.groupByModule(data.requires);
+            const providedVersions = data.provides.map(p => p.version);
+
             for (const mod in groupedRequires) {
                 const versions = groupedRequires[mod].join(', ');
-                const mismatch = Utils.isMismatch(groupedRequires[mod], data.provides.map(p => p.version));
-                html += `<li><code>${mod}</code> (${versions})` +
-                    (mismatch ? ` ⚠️ <span style="color: orange;">version mismatch</span>` : '') +
-                    `</li>`;
+                html += `<li><code>${mod}</code> (${versions})`;
+
+                // Only show version mismatch if enabled
+                if (this.showVersionMismatch) {
+                    const mismatchType = Utils.getVersionMismatchType(groupedRequires[mod], providedVersions);
+                    const mismatchDisplay = Utils.getMismatchDisplay(mismatchType);
+
+                    if (mismatchDisplay) {
+                        html += ` ${mismatchDisplay.icon} <span style="color: ${mismatchDisplay.color};">${mismatchDisplay.text}</span>`;
+                    }
+                }
+
+                html += `</li>`;
             }
         }
         html += `</ul>`;
@@ -602,20 +735,38 @@ const ApiManager = {
             html += `<li><em>No optional users</em></li>`;
         } else {
             const groupedOptional = Utils.groupByModule(data.optional);
+            const providedVersions = data.provides.map(p => p.version);
+
             for (const mod in groupedOptional) {
                 const versions = groupedOptional[mod].join(', ');
-                const mismatch = Utils.isMismatch(groupedOptional[mod], data.provides.map(p => p.version));
-                html += `<li><code>${mod}</code> (${versions})` +
-                    (mismatch ? ` ⚠️ <span style="color: orange;">version mismatch</span>` : '') +
-                    `</li>`;
+                html += `<li><code>${mod}</code> (${versions})`;
+
+                // Only show version mismatch if enabled
+                if (this.showVersionMismatch) {
+                    const mismatchType = Utils.getVersionMismatchType(groupedOptional[mod], providedVersions);
+                    const mismatchDisplay = Utils.getMismatchDisplay(mismatchType);
+
+                    if (mismatchDisplay) {
+                        html += ` ${mismatchDisplay.icon} <span style="color: ${mismatchDisplay.color};">${mismatchDisplay.text}</span>`;
+                    }
+                }
+
+                html += `</li>`;
             }
         }
         html += `</ul>`;
 
         div.innerHTML = html;
 
-        // Attach export button listener
+        // Apply initial button styling and attach listeners
+        const toggleBtn = document.getElementById('toggle-version-warnings');
+        if (toggleBtn) {
+            this.updateToggleButton(toggleBtn);
+        }
+
+        // Attach both export button and toggle button listeners
         this.attachExportListener();
+        this.initVersionMismatchToggle();
     },
 
     attachExportListener() {
@@ -773,7 +924,6 @@ const App = {
             console.error('Error initializing app:', error);
         }
     },
-
 
     initTable() {
         TableManager.renderTable(AppState.allRows);
