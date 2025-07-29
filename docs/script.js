@@ -1030,6 +1030,7 @@ const App = {
         const ModuleGraphManager = {
             cy: null,
             addedNodes: new Set(),
+            selectedModules: new Set(), // Only new addition for tracking multiple modules
             providesMap: new Map(), // api → [providerModules]
             dependentsMap: new Map(), // api → [consumerModules]
             providesByModule: new Map(), // module → [apis]
@@ -1045,157 +1046,162 @@ const App = {
                 this.dependentsMap.clear();
                 this.providesByModule.clear();
 
-                // Build lookup maps from the data
-                for (const row of AppState.allRows) {
+                // Build lookup maps from allRows
+                AppState.allRows.forEach(row => {
                     if (row.type === 'provides') {
-                        // Track which modules provide which APIs
+                        // Map API to providers
                         if (!this.providesMap.has(row.api)) {
                             this.providesMap.set(row.api, []);
                         }
                         this.providesMap.get(row.api).push(row.module);
 
-                        // Track which APIs each module provides
+                        // Map module to provided APIs
                         if (!this.providesByModule.has(row.module)) {
                             this.providesByModule.set(row.module, []);
                         }
                         this.providesByModule.get(row.module).push(row.api);
                     } else if (row.type === 'requires' || row.type === 'optional') {
-                        // Track which modules depend on which APIs
+                        // Map API to consumers
                         if (!this.dependentsMap.has(row.api)) {
                             this.dependentsMap.set(row.api, []);
                         }
                         this.dependentsMap.get(row.api).push(row.module);
                     }
-                }
+                });
             },
 
             setupDropdown() {
-                const moduleNames = [...new Set(AppState.allRows.map(r => r.module))].sort();
+                const modules = Array.from(this.providesByModule.keys()).sort();
 
                 const moduleDropdown = new DropdownComponent(
                     AppState.elements.moduleConsumersInput,
                     AppState.elements.moduleConsumersDropdown,
                     {
-                        filterFn: (items, term) =>
-                            items.filter(m => m.toLowerCase().startsWith(term.toLowerCase())),
-                        onSelect: (moduleName) => this.renderInitialGraph(moduleName)
+                        onSelect: (module) => {
+                            // Modified to support multiple modules
+                            this.selectedModules.add(module);
+                            this.expandModule(module);
+                            // Don't clear input to allow adding more modules
+                        }
                     }
                 );
 
-                moduleDropdown.setItems(moduleNames);
+                moduleDropdown.setItems(modules);
             },
 
-            renderInitialGraph(moduleName) {
-                try {
-                    // Clear the graph container
-                    AppState.elements.moduleConsumersGraph.innerHTML = '';
+            initGraph() {
+                const container = AppState.elements.moduleConsumersGraph;
+                if (!container) return;
 
-                    // Initialize Cytoscape
-                    this.cy = cytoscape({
-                        container: AppState.elements.moduleConsumersGraph,
-                        elements: [
-                            { data: { id: moduleName, label: moduleName } }
-                        ],
-                        layout: {
-                            name: 'breadthfirst',
-                            directed: true,
-                            padding: 20,
-                            spacingFactor: 1.5
-                        },
-                        style: [
-                            {
-                                selector: 'node',
-                                style: {
-                                    'label': 'data(label)',
-                                    'background-color': '#1976d2',
-                                    'color': '#fff',
-                                    'text-valign': 'center',
-                                    'text-halign': 'center',
-                                    'font-size': '12px',
-                                    'text-outline-color': '#1976d2',
-                                    'text-outline-width': 2,
-                                    'width': 'label',
-                                    'height': 'label',
-                                    'padding': '8px',
-                                    'shape': 'roundrectangle'
-                                }
-                            },
-                            {
-                                selector: 'node:selected',
-                                style: {
-                                    'background-color': '#ff5722',
-                                    'text-outline-color': '#ff5722'
-                                }
-                            },
-                            {
-                                selector: 'edge',
-                                style: {
-                                    'label': 'data(label)',
-                                    'width': 2,
-                                    'line-color': '#666',
-                                    'target-arrow-color': '#666',
-                                    'target-arrow-shape': 'triangle',
-                                    'curve-style': 'bezier',
-                                    'font-size': '10px',
-                                    'text-rotation': 'autorotate',
-                                    'text-margin-y': -8,
-                                    'text-outline-color': '#fff',
-                                    'text-outline-width': 1,
-                                    'text-background-color': '#fff',
-                                    'text-background-opacity': 0.8,
-                                    'text-background-padding': '2px'
-                                }
-                            },
-                            {
-                                selector: 'edge[depType = "optional"]',
-                                style: {
-                                    'line-color': '#ff9800',
-                                    'target-arrow-color': '#ff9800',
-                                    'line-style': 'dashed'
-                                }
-                            },
-                            {
-                                selector: 'edge[depType = "requires"]',
-                                style: {
-                                    'line-color': '#4caf50',
-                                    'target-arrow-color': '#4caf50',
-                                    'line-style': 'solid'
-                                }
+                this.cy = cytoscape({
+                    container: container,
+                    elements: [],
+                    style: [
+                        {
+                            selector: 'node',
+                            style: {
+                                'background-color': '#007bff',
+                                'label': 'data(label)',
+                                'text-valign': 'center',
+                                'text-halign': 'center',
+                                'color': 'white',
+                                'font-size': '11px',
+                                'width': '140px',
+                                'height': '40px',
+                                'shape': 'roundrectangle',
+                                'text-wrap': 'wrap',
+                                'text-max-width': '130px'
                             }
-                        ],
-                        wheelSensitivity: 0.2,
-                        minZoom: 0.1,
-                        maxZoom: 3
-                    });
+                        },
+                        {
+                            selector: 'edge',
+                            style: {
+                                'width': 2,
+                                'line-color': '#666',
+                                'target-arrow-color': '#666',
+                                'target-arrow-shape': 'triangle',
+                                'curve-style': 'bezier',
+                                'label': 'data(label)',
+                                'font-size': '10px',
+                                'text-rotation': 'autorotate'
+                            }
+                        },
+                        {
+                            selector: 'edge[depType="optional"]',
+                            style: {
+                                'line-style': 'dashed',
+                                'line-color': '#ffc107',
+                                'target-arrow-color': '#ffc107'
+                            }
+                        }
+                    ],
+                    layout: {
+                        name: 'breadthfirst',
+                        directed: true,
+                        padding: 30,
+                        spacingFactor: 1.8
+                    }
+                });
 
-                    // Clear tracking and expand the initial module
-                    this.addedNodes.clear();
-                    this.expandModule(moduleName);
+                // Add click handlers for nodes
+                let clickTimeout = null;
 
-                    // Add click handler for expanding nodes
-                    this.cy.on('tap', 'node', (evt) => {
-                        const node = evt.target;
-                        this.expandModule(node.id());
-                    });
+                this.cy.on('tap', 'node', (evt) => {
+                    const node = evt.target;
+                    const moduleId = node.id();
 
-                    // Add double-click to focus on a node
-                    this.cy.on('dbltap', 'node', (evt) => {
-                        const node = evt.target;
-                        this.cy.animate({
-                            fit: {
-                                eles: node,
-                                padding: 50
+                    // Clear any existing timeout
+                    if (clickTimeout) {
+                        clearTimeout(clickTimeout);
+                        clickTimeout = null;
+                        // This is a double-click - focus on the node
+                        this.focusOnNode(node);
+                        return;
+                    }
+
+                    // Set timeout for single click
+                    clickTimeout = setTimeout(() => {
+                        clickTimeout = null;
+                        // Single click - expand the module
+                        if (!this.selectedModules.has(moduleId)) {
+                            this.selectedModules.add(moduleId);
+                            this.expandModule(moduleId);
+                        }
+                    }, 300); // 300ms delay to detect double-click
+                });
+            },
+
+            focusOnNode(node) {
+                if (!this.cy || !node) return;
+
+                // Animate to focus on the clicked node
+                this.cy.animate({
+                    fit: {
+                        eles: node,
+                        padding: 100
+                    },
+                    duration: 500
+                });
+
+                // Optional: Highlight the focused node temporarily
+                const originalColor = node.style('background-color');
+                node.animate({
+                    style: {
+                        'background-color': '#28a745'
+                    }
+                }, {
+                    duration: 200,
+                    complete: () => {
+                        // Animate back to original color
+                        node.animate({
+                            style: {
+                                'background-color': originalColor
                             }
                         }, {
-                            duration: 500
+                            duration: 200
                         });
-                    });
-
-                } catch (error) {
-                    console.error('Error initializing module consumers graph:', error);
-                    AppState.elements.moduleConsumersGraph.innerHTML =
-                        '<p style="color: red;">Error loading graph visualization. Please check console for details.</p>';
-                }
+                    }
+                });
             },
 
             expandModule(moduleName) {
@@ -1305,9 +1311,9 @@ const App = {
 
         // Initialize the module graph manager
         ModuleGraphManager.init();
+        ModuleGraphManager.initGraph();
 
-        // Optionally add control buttons
-        this.addGraphControls(ModuleGraphManager);
+        this.addGraphControls(ModuleGraphManager)
     },
 
 // Helper method to add control buttons for the graph
@@ -1322,13 +1328,13 @@ const App = {
         controlsDiv.style.cssText = 'margin: 10px 0; display: flex; gap: 10px; flex-wrap: wrap;';
 
         controlsDiv.innerHTML = `
-        <button id="fit-graph" class="graph-btn">Fit to View</button>
-        <button id="reset-graph" class="graph-btn">Reset Graph</button>
-        <button id="export-graph" class="graph-btn">Export PNG</button>
-        <span style="margin-left: auto; font-size: 12px; color: #666;">
-            Click nodes to expand • Double-click to focus • Mouse wheel to zoom
-        </span>
-    `;
+            <button id="fit-graph" class="graph-btn">Fit to View</button>
+            <button id="reset-graph" class="graph-btn">Reset Graph</button>
+            <button id="export-graph" class="graph-btn">Export PNG</button>
+            <span style="margin-left: auto; font-size: 12px; color: #666;">
+                Click nodes to expand • Double-click to focus • Mouse wheel to zoom
+            </span>
+        `;
 
         // Insert before the graph container
         graphContainer.insertBefore(controlsDiv, AppState.elements.moduleConsumersGraph);
@@ -1341,9 +1347,18 @@ const App = {
         });
 
         document.getElementById('reset-graph')?.addEventListener('click', () => {
+            // Clear the graph and reset all state
+            graphManager.selectedModules.clear();
+            graphManager.addedNodes.clear();
+
+            if (graphManager.cy) {
+                graphManager.cy.elements().remove(); // Remove all nodes and edges
+            }
+
+            // Clear the input field
             const input = AppState.elements.moduleConsumersInput;
-            if (input && input.value) {
-                graphManager.renderInitialGraph(input.value);
+            if (input) {
+                input.value = '';
             }
         });
 
