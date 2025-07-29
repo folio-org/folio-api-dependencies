@@ -1034,6 +1034,7 @@ const App = {
             providesMap: new Map(), // api → [providerModules]
             dependentsMap: new Map(), // api → [consumerModules]
             providesByModule: new Map(), // module → [apis]
+            deselectMode: false,
 
             init() {
                 this.buildLookupMaps();
@@ -1068,6 +1069,113 @@ const App = {
                         this.dependentsMap.get(row.api).push(row.module);
                     }
                 });
+            },
+
+            // Add method to toggle deselect mode
+            toggleDeselectMode() {
+                this.deselectMode = !this.deselectMode;
+                const deselectBtn = document.getElementById('deselect-mode');
+                if (deselectBtn) {
+                    if (this.deselectMode) {
+                        deselectBtn.textContent = 'Exit Deselect Mode';
+                        deselectBtn.style.backgroundColor = '#dc3545';
+                        deselectBtn.style.color = 'white';
+                    } else {
+                        deselectBtn.textContent = 'Toggle Deselect Mode';
+                        deselectBtn.style.backgroundColor = '';
+                        deselectBtn.style.color = '';
+                    }
+                }
+            },
+
+            // Add method to deselect a module
+            // Add method to deselect a module and its related modules
+            deselectModule(moduleId) {
+                if (!this.cy) return;
+
+                // Get the node to be deselected
+                const node = this.cy.getElementById(moduleId);
+                if (!node.length) return;
+
+                // Find all nodes that should be removed (connected nodes)
+                const nodesToRemove = new Set();
+                nodesToRemove.add(moduleId);
+
+                // Get all connected nodes through edges
+                const connectedEdges = node.connectedEdges();
+                connectedEdges.forEach(edge => {
+                    const sourceId = edge.source().id();
+                    const targetId = edge.target().id();
+
+                    // Add both source and target to removal list
+                    nodesToRemove.add(sourceId);
+                    nodesToRemove.add(targetId);
+                });
+
+                // However, keep nodes that are still selected as primary modules
+                // or have connections to other primary modules that aren't being removed
+                const nodesToKeep = new Set();
+
+                // Check each node to see if it should be kept
+                nodesToRemove.forEach(nodeId => {
+                    // If it's a primary selected module (and not the one being deselected), keep it
+                    if (this.selectedModules.has(nodeId) && nodeId !== moduleId) {
+                        nodesToKeep.add(nodeId);
+                        return;
+                    }
+
+                    // Check if this node has connections to modules that will remain
+                    const nodeToCheck = this.cy.getElementById(nodeId);
+                    if (nodeToCheck.length) {
+                        const nodeEdges = nodeToCheck.connectedEdges();
+                        let hasConnectionToKeep = false;
+
+                        nodeEdges.forEach(edge => {
+                            const otherNodeId = edge.source().id() === nodeId ?
+                                edge.target().id() : edge.source().id();
+
+                            // If connected to a primary module that's not being removed, keep this node
+                            if (this.selectedModules.has(otherNodeId) && otherNodeId !== moduleId) {
+                                hasConnectionToKeep = true;
+                            }
+                        });
+
+                        if (hasConnectionToKeep) {
+                            nodesToKeep.add(nodeId);
+                        }
+                    }
+                });
+
+                // Remove nodes that shouldn't be kept
+                const finalNodesToRemove = Array.from(nodesToRemove).filter(nodeId =>
+                    !nodesToKeep.has(nodeId)
+                );
+
+                // Remove from tracking sets
+                finalNodesToRemove.forEach(nodeId => {
+                    this.selectedModules.delete(nodeId);
+                    this.addedNodes.delete(nodeId);
+                });
+
+                // Remove nodes from graph
+                finalNodesToRemove.forEach(nodeId => {
+                    const nodeToRemove = this.cy.getElementById(nodeId);
+                    if (nodeToRemove.length) {
+                        this.cy.remove(nodeToRemove);
+                    }
+                });
+
+                // Re-layout the graph if nodes remain
+                if (this.cy.nodes().length > 0) {
+                    this.cy.layout({
+                        name: 'breadthfirst',
+                        directed: true,
+                        padding: 30,
+                        spacingFactor: 1.8,
+                        animate: true,
+                        animationDuration: 500
+                    }).run();
+                }
             },
 
             setupDropdown() {
@@ -1150,6 +1258,12 @@ const App = {
                     const node = evt.target;
                     const moduleId = node.id();
 
+                    // Check if in deselect mode
+                    if (this.deselectMode) {
+                        this.deselectModule(moduleId);
+                        return;
+                    }
+
                     // Clear any existing timeout
                     if (clickTimeout) {
                         clearTimeout(clickTimeout);
@@ -1169,6 +1283,20 @@ const App = {
                         }
                     }, 300); // 300ms delay to detect double-click
                 });
+
+                // Update node appearance when in deselect mode
+                this.cy.on('mouseover', 'node', (evt) => {
+                    if (this.deselectMode) {
+                        evt.target.addClass('deselect-mode');
+                    }
+                });
+
+                this.cy.on('mouseout', 'node', (evt) => {
+                    if (this.deselectMode) {
+                        evt.target.removeClass('deselect-mode');
+                    }
+                });
+
             },
 
             focusOnNode(node) {
@@ -1394,9 +1522,10 @@ const App = {
             <button id="reset-graph" class="graph-btn">Reset Graph</button>
             <button id="show-required-deps" class="graph-btn">Show Required Dependencies</button>
             <button id="show-optional-deps" class="graph-btn">Show Optional Dependencies</button>
+            <button id="deselect-mode" class="graph-btn">Toggle Deselect Mode</button>
             <button id="export-graph" class="graph-btn">Export PNG</button>
             <span style="margin-left: auto; font-size: 12px; color: #666;">
-                Click nodes to expand • Double-click to focus • Mouse wheel to zoom
+                Click nodes to expand • Double-click to focus • Ctrl+click to deselect • Mouse wheel to zoom
             </span>
         `;
 
@@ -1414,6 +1543,14 @@ const App = {
             // Clear the graph and reset all state
             graphManager.selectedModules.clear();
             graphManager.addedNodes.clear();
+            graphManager.deselectMode = false;
+
+            // Update deselect button appearance
+            const deselectBtn = document.getElementById('deselect-mode');
+            if (deselectBtn) {
+                deselectBtn.textContent = 'Toggle Deselect Mode';
+                deselectBtn.style.backgroundColor = '';
+            }
 
             if (graphManager.cy) {
                 graphManager.cy.elements().remove(); // Remove all nodes and edges
@@ -1432,6 +1569,10 @@ const App = {
 
         document.getElementById('show-optional-deps')?.addEventListener('click', () => {
             graphManager.showDependencies('optional');
+        });
+
+        document.getElementById('deselect-mode')?.addEventListener('click', () => {
+            graphManager.toggleDeselectMode();
         });
 
         document.getElementById('export-graph')?.addEventListener('click', () => {
