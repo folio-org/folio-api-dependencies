@@ -1298,7 +1298,69 @@ const App = {
                 link.href = URL.createObjectURL(png64);
                 link.download = 'module-dependencies.png';
                 link.click();
-            }
+            },
+
+            showDependencies(dependencyType) {
+                if (!this.cy || this.selectedModules.size === 0) return;
+
+                // Get all currently selected modules
+                const currentModules = Array.from(this.selectedModules);
+
+                for (const moduleName of currentModules) {
+                    // Find all dependencies of this module (APIs it requires/optional)
+                    const moduleDependencies = AppState.allRows.filter(row =>
+                        row.module === moduleName && row.type === dependencyType
+                    );
+
+                    for (const dep of moduleDependencies) {
+                        const api = dep.api;
+
+                        // Find modules that provide this API
+                        const providers = this.providesMap.get(api) || [];
+
+                        for (const provider of providers) {
+                            // Skip if provider is the same as consumer
+                            if (provider === moduleName) continue;
+
+                            // Add provider node if it doesn't exist
+                            if (!this.cy.getElementById(provider).length) {
+                                this.cy.add({
+                                    group: 'nodes',
+                                    data: { id: provider, label: provider }
+                                });
+                            }
+
+                            // Add edge from current module to provider
+                            const edgeId = `${moduleName}__depends_on__${provider}__${api}`;
+                            if (!this.cy.getElementById(edgeId).length) {
+                                this.cy.add({
+                                    group: 'edges',
+                                    data: {
+                                        id: edgeId,
+                                        source: moduleName,
+                                        target: provider,
+                                        label: `${api}${dependencyType === 'optional' ? ' (opt)' : ''}`,
+                                        depType: dependencyType
+                                    }
+                                });
+                            }
+
+                            // Mark provider as added so it can be expanded later
+                            this.addedNodes.add(provider);
+                        }
+                    }
+                }
+
+                // Re-layout the graph
+                this.cy.layout({
+                    name: 'breadthfirst',
+                    directed: true,
+                    padding: 30,
+                    spacingFactor: 1.8,
+                    animate: true,
+                    animationDuration: 500
+                }).run();
+            },
         };
 
         // Check if Cytoscape is available
@@ -1325,11 +1387,13 @@ const App = {
 
         const controlsDiv = document.createElement('div');
         controlsDiv.className = 'graph-controls';
-        controlsDiv.style.cssText = 'margin: 10px 0; display: flex; gap: 10px; flex-wrap: wrap;';
+        controlsDiv.style.cssText = 'margin: 10px 0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;';
 
         controlsDiv.innerHTML = `
             <button id="fit-graph" class="graph-btn">Fit to View</button>
             <button id="reset-graph" class="graph-btn">Reset Graph</button>
+            <button id="show-required-deps" class="graph-btn">Show Required Dependencies</button>
+            <button id="show-optional-deps" class="graph-btn">Show Optional Dependencies</button>
             <button id="export-graph" class="graph-btn">Export PNG</button>
             <span style="margin-left: auto; font-size: 12px; color: #666;">
                 Click nodes to expand • Double-click to focus • Mouse wheel to zoom
@@ -1360,6 +1424,14 @@ const App = {
             if (input) {
                 input.value = '';
             }
+        });
+
+        document.getElementById('show-required-deps')?.addEventListener('click', () => {
+            graphManager.showDependencies('requires');
+        });
+
+        document.getElementById('show-optional-deps')?.addEventListener('click', () => {
+            graphManager.showDependencies('optional');
         });
 
         document.getElementById('export-graph')?.addEventListener('click', () => {
