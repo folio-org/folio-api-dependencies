@@ -335,7 +335,7 @@
       },
       {
         "id": "loan-storage",
-        "version": "7.3"
+        "version": "7.4"
       },
       {
         "id": "anonymize-storage-loans",
@@ -351,7 +351,7 @@
       },
       {
         "id": "loan-policy-storage",
-        "version": "2.3"
+        "version": "2.4"
       },
       {
         "id": "request-storage",
@@ -7767,10 +7767,6 @@
         "version": "1.0"
       },
       {
-        "id": "eholdings",
-        "version": "4.0"
-      },
-      {
         "id": "loan-types",
         "version": "2.0"
       },
@@ -7911,6 +7907,10 @@
       {
         "id": "finance-storage.expense-classes",
         "version": "3.0"
+      },
+      {
+        "id": "eholdings",
+        "version": "4.0"
       }
     ]
   },
