@@ -6806,16 +6806,6 @@
     "requires": [],
     "optional": []
   },
-  "mod-ldp": {
-    "provides": [
-      {
-        "id": "ldp-query",
-        "version": "1.2"
-      }
-    ],
-    "requires": [],
-    "optional": []
-  },
   "ui-plugin-find-eresource": {
     "requires": [
       {
