@@ -10648,6 +10648,14 @@
   "ui-ld-folio-wrapper": {
     "requires": [
       {
+        "id": "authority-source-files",
+        "version": "2.2"
+      },
+      {
+        "id": "browse-authorities",
+        "version": "1.0"
+      },
+      {
         "id": "linked-data",
         "version": "2.0"
       },
@@ -10656,20 +10664,16 @@
         "version": "1.0"
       },
       {
-        "id": "search-linked-data",
-        "version": "1.0"
-      },
-      {
         "id": "search-authorities",
         "version": "1.0"
       },
       {
-        "id": "browse-authorities",
+        "id": "search-facets",
         "version": "1.0"
       },
       {
-        "id": "authority-source-files",
-        "version": "2.2"
+        "id": "search-linked-data",
+        "version": "1.0"
       },
       {
         "id": "source-storage-records",
