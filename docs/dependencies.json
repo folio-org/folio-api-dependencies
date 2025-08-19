@@ -5225,10 +5225,6 @@
     ],
     "requires": [
       {
-        "id": "configuration",
-        "version": "2.0"
-      },
-      {
         "id": "settings",
         "version": "1.2"
       },
@@ -5250,6 +5246,10 @@
       },
       {
         "id": "invoice-storage.invoice-line-number",
+        "version": "1.0"
+      },
+      {
+        "id": "invoice-storage.settings",
         "version": "1.0"
       },
       {
@@ -5388,6 +5388,10 @@
       },
       {
         "id": "batch-group-storage.batch-groups",
+        "version": "1.0"
+      },
+      {
+        "id": "invoice-storage.settings",
         "version": "1.0"
       },
       {
