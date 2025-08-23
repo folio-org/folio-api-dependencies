@@ -2943,6 +2943,14 @@
       {
         "id": "search-facets",
         "version": "1.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.1"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": []
