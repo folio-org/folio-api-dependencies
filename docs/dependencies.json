@@ -9149,6 +9149,10 @@
         "version": "1.0"
       },
       {
+        "id": "dcb_refresh_shadow_locations",
+        "version": "1.0"
+      },
+      {
         "id": "_tenant",
         "version": "2.0"
       }
