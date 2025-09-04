@@ -1091,7 +1091,7 @@
       },
       {
         "id": "item-storage",
-        "version": "11.0"
+        "version": "11.1"
       },
       {
         "id": "instance-date-types",
@@ -2798,6 +2798,10 @@
       {
         "id": "loan-types",
         "version": "2.3"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": []
@@ -5384,6 +5388,10 @@
       },
       {
         "id": "batch-group-storage.batch-groups",
+        "version": "1.0"
+      },
+      {
+        "id": "invoice-storage.adjustment-presets",
         "version": "1.0"
       },
       {
@@ -9931,7 +9939,7 @@
       },
       {
         "id": "requests-mediated-loans",
-        "version": "1.2"
+        "version": "1.3"
       },
       {
         "id": "_tenant",
@@ -10007,7 +10015,7 @@
       },
       {
         "id": "ecs-loans",
-        "version": "1.1"
+        "version": "1.3"
       }
     ]
   },
@@ -10598,7 +10606,7 @@
       },
       {
         "id": "requests-mediated-loans",
-        "version": "1.1"
+        "version": "1.3"
       },
       {
         "id": "ecs-tlr-allowed-service-points",
