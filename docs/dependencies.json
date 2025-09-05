@@ -10493,6 +10493,10 @@
         "version": "1.6"
       },
       {
+        "id": "circulation-bff-inventory",
+        "version": "1.0"
+      },
+      {
         "id": "_tenant",
         "version": "2.0"
       }
@@ -10863,6 +10867,10 @@
         "version": "1.0"
       }
     ],
+    "optional": []
+  },
+  "stripes-leipzig-components": {
+    "requires": [],
     "optional": []
   }
 }
