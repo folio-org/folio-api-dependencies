@@ -1727,6 +1727,10 @@
       {
         "id": "circulation-bff-loans",
         "version": "1.0"
+      },
+      {
+        "id": "circulation-bff-inventory",
+        "version": "1.0"
       }
     ]
   },
@@ -9688,6 +9692,14 @@
       {
         "id": "classification-types",
         "version": "1.2"
+      },
+      {
+        "id": "subject-sources",
+        "version": "1.0"
+      },
+      {
+        "id": "subject-types",
+        "version": "1.0"
       }
     ],
     "optional": [
