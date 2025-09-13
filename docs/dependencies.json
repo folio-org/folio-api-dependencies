@@ -4467,7 +4467,7 @@
       },
       {
         "id": "source-storage-source-records",
-        "version": "3.2"
+        "version": "3.3"
       },
       {
         "id": "source-storage-test-records",
@@ -4848,7 +4848,7 @@
       },
       {
         "id": "source-manager-parsed-records",
-        "version": "3.0"
+        "version": "4.0"
       },
       {
         "id": "metadata-provider-job-execution-logs",
@@ -6741,7 +6741,7 @@
     "requires": [
       {
         "id": "source-manager-parsed-records",
-        "version": "3.0"
+        "version": "4.0"
       },
       {
         "id": "source-manager-job-executions",
@@ -6750,6 +6750,10 @@
       {
         "id": "source-manager-records",
         "version": "2.0"
+      },
+      {
+        "id": "source-storage-source-records",
+        "version": "3.3"
       },
       {
         "id": "users",
@@ -9254,6 +9258,10 @@
       {
         "id": "permissions",
         "version": "5.8"
+      },
+      {
+        "id": "locations",
+        "version": "3.2"
       }
     ],
     "optional": []
