@@ -6740,18 +6740,6 @@
     ],
     "requires": [
       {
-        "id": "source-manager-parsed-records",
-        "version": "4.0"
-      },
-      {
-        "id": "source-manager-job-executions",
-        "version": "3.4"
-      },
-      {
-        "id": "source-manager-records",
-        "version": "2.0"
-      },
-      {
         "id": "source-storage-source-records",
         "version": "3.3"
       },
@@ -6762,10 +6750,6 @@
       {
         "id": "users",
         "version": "16.0"
-      },
-      {
-        "id": "field-protection-settings",
-        "version": "1.2"
       },
       {
         "id": "instance-authority-links",
@@ -6784,7 +6768,24 @@
         "version": "1.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "source-manager-parsed-records",
+        "version": "4.0"
+      },
+      {
+        "id": "source-manager-job-executions",
+        "version": "3.4"
+      },
+      {
+        "id": "source-manager-records",
+        "version": "2.0"
+      },
+      {
+        "id": "field-protection-settings",
+        "version": "1.2"
+      }
+    ]
   },
   "ui-quick-marc": {
     "requires": [
@@ -7507,19 +7508,20 @@
     ],
     "requires": [
       {
+        "id": "source-storage-source-records",
+        "version": "3.2"
+      }
+    ],
+    "optional": [
+      {
         "id": "source-manager-job-executions",
         "version": "3.4"
       },
       {
         "id": "source-manager-records",
         "version": "2.0"
-      },
-      {
-        "id": "source-storage-source-records",
-        "version": "3.2"
       }
-    ],
-    "optional": []
+    ]
   },
   "mod-spring-template": {
     "provides": [
@@ -8606,10 +8608,6 @@
         "version": "11.0"
       },
       {
-        "id": "mapping-rules-provider",
-        "version": "2.0"
-      },
-      {
         "id": "settings",
         "version": "1.0"
       },
@@ -8630,6 +8628,10 @@
       {
         "id": "specification-storage",
         "version": "1.0"
+      },
+      {
+        "id": "mapping-rules-provider",
+        "version": "2.0"
       }
     ]
   },
