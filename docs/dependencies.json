@@ -11013,6 +11013,10 @@
       {
         "id": "order-templates",
         "version": "1.0"
+      },
+      {
+        "id": "organizations.organizations",
+        "version": "1.2"
       }
     ],
     "optional": []
