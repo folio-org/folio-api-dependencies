@@ -11047,7 +11047,12 @@
     "optional": []
   },
   "mod-linked-data-import": {
-    "provides": [],
+    "provides": [
+      {
+        "id": "linked-data-import",
+        "version": "1.0"
+      }
+    ],
     "requires": [
       {
         "id": "linked-data",
