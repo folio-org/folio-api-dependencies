@@ -242,6 +242,112 @@ th.desc::after {
     margin-bottom: 1em;
 }
 
+/* Apps View Styles */
+.app-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s;
+}
+
+.app-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.app-card h3 {
+    margin-top: 0;
+    color: #2980b9;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-card .app-meta {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 1em;
+}
+
+.app-card .app-platform {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.app-card .platform-base {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.app-card .platform-complete {
+    background-color: #e8f5e9;
+    color: #388e3c;
+}
+
+.app-section {
+    margin: 1em 0;
+}
+
+.app-section h4 {
+    margin: 0.5em 0;
+    color: #555;
+    font-size: 16px;
+}
+
+.app-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+.app-list li {
+    padding: 6px 12px;
+    margin: 4px 0;
+    background: #f8f9fa;
+    border-left: 3px solid #2980b9;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-list li code {
+    font-weight: bold;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.app-list li .version {
+    color: #666;
+    font-size: 13px;
+}
+
+.app-list.dependencies li {
+    border-left-color: #9c27b0;
+}
+
+.app-list.modules li {
+    border-left-color: #4caf50;
+}
+
+.app-list.ui-modules li {
+    border-left-color: #ff9800;
+}
+
+.empty-section {
+    color: #999;
+    font-style: italic;
+    padding: 8px;
+}
+
 
 
 

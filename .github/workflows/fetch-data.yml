@@ -19,14 +19,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run parser
+      - name: Run module parser
         run: node fetch-descriptors.js
+
+      - name: Run app parser
+        run: node fetch-apps.js
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add docs/dependencies.json
+          git add docs/apps.json
           git commit -m "Update dependencies" || echo "No changes to commit"
           git push
 

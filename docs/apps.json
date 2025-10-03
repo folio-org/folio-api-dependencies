@@ -1,0 +1,1295 @@
+{
+  "app-platform-minimal": {
+    "platform": "base",
+    "dependencies": [],
+    "modules": [
+      {
+        "name": "mod-configuration",
+        "version": "latest"
+      },
+      {
+        "name": "mod-permissions",
+        "version": "latest"
+      },
+      {
+        "name": "mod-tags",
+        "version": "latest"
+      },
+      {
+        "name": "mod-users",
+        "version": "latest"
+      },
+      {
+        "name": "mod-users-bl",
+        "version": "latest"
+      },
+      {
+        "name": "mod-password-validator",
+        "version": "latest"
+      },
+      {
+        "name": "mod-login-keycloak",
+        "version": "latest"
+      },
+      {
+        "name": "mod-users-keycloak",
+        "version": "latest"
+      },
+      {
+        "name": "mod-roles-keycloak",
+        "version": "latest"
+      },
+      {
+        "name": "mod-notes",
+        "version": "latest"
+      },
+      {
+        "name": "mod-scheduler",
+        "version": "latest"
+      },
+      {
+        "name": "mod-settings",
+        "version": "latest"
+      },
+      {
+        "name": "mod-okapi-facade",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_developer",
+        "version": "latest"
+      },
+      {
+        "name": "folio_tags",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-core",
+        "version": "latest"
+      },
+      {
+        "name": "folio_notes",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-smart-components",
+        "version": "latest"
+      },
+      {
+        "name": "folio_authorization-policies",
+        "version": "latest"
+      },
+      {
+        "name": "folio_authorization-roles",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-platform-complete": {
+    "platform": "base",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-graphql",
+        "version": "latest"
+      },
+      {
+        "name": "mod-quick-marc",
+        "version": "latest"
+      },
+      {
+        "name": "mod-inventory-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-circulation-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-search",
+        "version": "latest"
+      },
+      {
+        "name": "mod-inventory",
+        "version": "latest"
+      },
+      {
+        "name": "mod-circulation",
+        "version": "latest"
+      },
+      {
+        "name": "mod-feesfines",
+        "version": "latest"
+      },
+      {
+        "name": "mod-patron-blocks",
+        "version": "latest"
+      },
+      {
+        "name": "mod-entities-links",
+        "version": "latest"
+      },
+      {
+        "name": "mod-source-record-manager",
+        "version": "latest"
+      },
+      {
+        "name": "mod-di-converter-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-patron",
+        "version": "latest"
+      },
+      {
+        "name": "mod-data-export",
+        "version": "latest"
+      },
+      {
+        "name": "mod-data-export-spring",
+        "version": "latest"
+      },
+      {
+        "name": "mod-data-export-worker",
+        "version": "latest"
+      },
+      {
+        "name": "mod-rtac",
+        "version": "latest"
+      },
+      {
+        "name": "mod-remote-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-calendar",
+        "version": "latest"
+      },
+      {
+        "name": "mod-audit",
+        "version": "latest"
+      },
+      {
+        "name": "mod-courses",
+        "version": "latest"
+      },
+      {
+        "name": "mod-source-record-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-data-import",
+        "version": "latest"
+      },
+      {
+        "name": "mod-agreements",
+        "version": "latest"
+      },
+      {
+        "name": "mod-licenses",
+        "version": "latest"
+      },
+      {
+        "name": "mod-email",
+        "version": "latest"
+      },
+      {
+        "name": "mod-event-config",
+        "version": "latest"
+      },
+      {
+        "name": "mod-notify",
+        "version": "latest"
+      },
+      {
+        "name": "mod-sender",
+        "version": "latest"
+      },
+      {
+        "name": "mod-template-engine",
+        "version": "latest"
+      },
+      {
+        "name": "mod-pubsub",
+        "version": "latest"
+      },
+      {
+        "name": "mod-gobi",
+        "version": "latest"
+      },
+      {
+        "name": "mod-copycat",
+        "version": "latest"
+      },
+      {
+        "name": "mod-ncip",
+        "version": "latest"
+      },
+      {
+        "name": "mod-inventory-update",
+        "version": "latest"
+      },
+      {
+        "name": "mod-user-import",
+        "version": "latest"
+      },
+      {
+        "name": "mod-service-interaction",
+        "version": "latest"
+      },
+      {
+        "name": "mod-ebsconet",
+        "version": "latest"
+      },
+      {
+        "name": "mod-batch-print",
+        "version": "latest"
+      },
+      {
+        "name": "mod-serials-management",
+        "version": "latest"
+      },
+      {
+        "name": "mod-record-specifications",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_marc-authorities",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-authority-components",
+        "version": "latest"
+      },
+      {
+        "name": "folio_quick-marc",
+        "version": "latest"
+      },
+      {
+        "name": "folio_inventory",
+        "version": "latest"
+      },
+      {
+        "name": "folio_servicepoints",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-create-inventory-records",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-instance",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-package-title",
+        "version": "latest"
+      },
+      {
+        "name": "folio_checkin",
+        "version": "latest"
+      },
+      {
+        "name": "folio_checkout",
+        "version": "latest"
+      },
+      {
+        "name": "folio_circulation",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-user",
+        "version": "latest"
+      },
+      {
+        "name": "folio_data-export",
+        "version": "latest"
+      },
+      {
+        "name": "folio_export-manager",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-bursar-export",
+        "version": "latest"
+      },
+      {
+        "name": "folio_remote-storage",
+        "version": "latest"
+      },
+      {
+        "name": "folio_circulation-log",
+        "version": "latest"
+      },
+      {
+        "name": "folio_calendar",
+        "version": "latest"
+      },
+      {
+        "name": "folio_courses",
+        "version": "latest"
+      },
+      {
+        "name": "folio_requests",
+        "version": "latest"
+      },
+      {
+        "name": "folio_data-import",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-import-profile",
+        "version": "latest"
+      },
+      {
+        "name": "folio_agreements",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-agreement",
+        "version": "latest"
+      },
+      {
+        "name": "folio_licenses",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-license",
+        "version": "latest"
+      },
+      {
+        "name": "folio_local-kb-admin",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-eresource",
+        "version": "latest"
+      },
+      {
+        "name": "folio_dashboard",
+        "version": "latest"
+      },
+      {
+        "name": "folio_tenant-settings",
+        "version": "latest"
+      },
+      {
+        "name": "folio_gobi-settings",
+        "version": "latest"
+      },
+      {
+        "name": "folio_handler-stripes-registry",
+        "version": "latest"
+      },
+      {
+        "name": "folio_myprofile",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-authority",
+        "version": "latest"
+      },
+      {
+        "name": "folio_service-interaction",
+        "version": "latest"
+      },
+      {
+        "name": "folio_users",
+        "version": "latest"
+      },
+      {
+        "name": "folio_serials-management",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-marc-components",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-inventory-components",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-edge-complete": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-fqm",
+        "version": "^1.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "edge-orders",
+        "version": "latest"
+      },
+      {
+        "name": "edge-connexion",
+        "version": "latest"
+      },
+      {
+        "name": "edge-dematic",
+        "version": "latest"
+      },
+      {
+        "name": "edge-caiasoft",
+        "version": "latest"
+      },
+      {
+        "name": "edge-rtac",
+        "version": "latest"
+      },
+      {
+        "name": "edge-sip2",
+        "version": "latest"
+      },
+      {
+        "name": "edge-fqm",
+        "version": "latest"
+      },
+      {
+        "name": "edge-erm",
+        "version": "latest"
+      },
+      {
+        "name": "edge-patron",
+        "version": "latest"
+      },
+      {
+        "name": "edge-courses",
+        "version": "latest"
+      },
+      {
+        "name": "edge-ncip",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-edge-locate": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "edge-inventory",
+        "version": "latest"
+      },
+      {
+        "name": "edge-users",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-consortia": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-consortia-keycloak",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-erm-usage": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-erm-usage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-erm-usage-harvester",
+        "version": "latest"
+      },
+      {
+        "name": "mod-eusage-reports",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_plugin-eusage-reports",
+        "version": "latest"
+      },
+      {
+        "name": "folio_erm-comparisons",
+        "version": "latest"
+      },
+      {
+        "name": "folio_erm-usage",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-erm-usage-data-provider",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-z39.50": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^0.0.16"
+      }
+    ],
+    "modules": [
+      {
+        "name": "Net-Z3950-FOLIO",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-dcb": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-dcb",
+        "version": "latest"
+      },
+      {
+        "name": "edge-dcb",
+        "version": "latest"
+      },
+      {
+        "name": "mod-circulation-item",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-linked-data": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-linked-data",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_ld-folio-wrapper",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-marc-migrations": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-marc-migrations",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-reading-room": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-reading-room",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_reading-room",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-requests-mediated": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-requests-mediated",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-requests-ecs": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-dcb",
+        "version": "^1.2.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-tlr",
+        "version": "latest"
+      },
+      {
+        "name": "mod-circulation-bff",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-consortia-manager": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-consortia",
+        "version": "^1.3.0-SNAPSHOT"
+      }
+    ],
+    "modules": [],
+    "uiModules": [
+      {
+        "name": "folio_consortia-settings",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-requests-mediated-ui": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-requests-mediated",
+        "version": "^2.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-requests-ecs",
+        "version": "^1.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [],
+    "uiModules": [
+      {
+        "name": "folio_requests-mediated",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-inn-reach": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-inn-reach",
+        "version": "latest"
+      },
+      {
+        "name": "edge-inn-reach",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_inn-reach",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-acquisitions": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-organizations",
+        "version": "latest"
+      },
+      {
+        "name": "mod-organizations-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-orders",
+        "version": "latest"
+      },
+      {
+        "name": "mod-orders-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-invoice",
+        "version": "latest"
+      },
+      {
+        "name": "mod-invoice-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-finance",
+        "version": "latest"
+      },
+      {
+        "name": "mod-finance-storage",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_organizations",
+        "version": "latest"
+      },
+      {
+        "name": "folio_orders",
+        "version": "latest"
+      },
+      {
+        "name": "folio_invoice",
+        "version": "latest"
+      },
+      {
+        "name": "folio_finance",
+        "version": "latest"
+      },
+      {
+        "name": "folio_receiving",
+        "version": "latest"
+      },
+      {
+        "name": "folio_claims",
+        "version": "latest"
+      },
+      {
+        "name": "folio_acquisition-units",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-organization",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-contact",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-interface",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-fund",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-po-line",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-fqm": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-acquisitions",
+        "version": "^1.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-fqm-manager",
+        "version": "latest"
+      },
+      {
+        "name": "edge-fqm",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_plugin-query-builder",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-oai-pmh": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-oai-pmh",
+        "version": "latest"
+      },
+      {
+        "name": "edge-oai-pmh",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_oai-pmh",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-bulk-edit": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-fqm",
+        "version": "^1.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-bulk-operations",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_bulk-edit",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-z3950": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-z3950",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-reporting": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-reporting",
+        "version": "1.4.1"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_ldp",
+        "version": "3.1.2"
+      }
+    ]
+  },
+  "app-gobi": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-gobi",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_gobi-settings",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-ebsconet": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-ebsconet",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-mosaic": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-mosaic",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_mosaic-settings",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-oa": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-oa",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_oa",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-licenses": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-licenses",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_licenses",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-license",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-rtac": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-rtac",
+        "version": "latest"
+      },
+      {
+        "name": "edge-rtac",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
+  "app-agreements": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-licenses",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-agreements",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_agreements",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-agreement",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-eresource",
+        "version": "latest"
+      },
+      {
+        "name": "folio_local-kb-admin",
+        "version": "latest"
+      },
+      {
+        "name": "folio_erm-comparisons",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-service-interaction": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-service-interaction",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_service-interaction",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-dashboard": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-service-interaction",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [],
+    "uiModules": [
+      {
+        "name": "folio_dashboard",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-finc": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-finc-config",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_finc-config",
+        "version": "latest"
+      },
+      {
+        "name": "folio_finc-select",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-finc-metadata-collection",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-finc-metadata-source",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-lists": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-fqm",
+        "version": "^1.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-lists",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_lists",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-eholdings": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-kb-ebsco-java",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_eholdings",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-serials-management": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-serials-management",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_serials-management",
+        "version": "latest"
+      }
+    ]
+  },
+  "app-data-export": {
+    "platform": "base",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^2.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-data-export",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_data-export",
+        "version": "latest"
+      }
+    ]
+  }
+}
