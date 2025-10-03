@@ -285,6 +285,8 @@ class DropdownComponent {
 
 // Data loading and processing
 const DataManager = {
+    moduleToAppsMap: new Map(),
+
     async loadDependencies() {
         try {
             const response = await fetch('dependencies.json');
@@ -310,6 +312,50 @@ const DataManager = {
             console.error('Error loading apps:', error);
             return {};
         }
+    },
+
+    buildModuleToAppsMap(appsData) {
+        this.moduleToAppsMap.clear();
+
+        for (const [appName, appData] of Object.entries(appsData)) {
+            // Process backend modules
+            if (appData.modules) {
+                appData.modules.forEach(module => {
+                    if (!this.moduleToAppsMap.has(module.name)) {
+                        this.moduleToAppsMap.set(module.name, []);
+                    }
+                    this.moduleToAppsMap.get(module.name).push(appName);
+                });
+            }
+
+            // Process UI modules
+            if (appData.uiModules) {
+                appData.uiModules.forEach(uiModule => {
+                    // Remove 'folio_' prefix and replace underscores with dashes
+                    const moduleName = uiModule.name
+                        .replace(/^folio_/, '')
+                        .replace(/_/g, '-');
+
+                    // Try both with and without 'ui-' prefix
+                    const uiModuleName = moduleName.startsWith('ui-') ? moduleName : `ui-${moduleName}`;
+                    const stripesModuleName = moduleName.startsWith('stripes-') ? moduleName : `stripes-${moduleName}`;
+
+                    // Add mappings for various name formats
+                    [uiModule.name, moduleName, uiModuleName, stripesModuleName].forEach(name => {
+                        if (!this.moduleToAppsMap.has(name)) {
+                            this.moduleToAppsMap.set(name, []);
+                        }
+                        if (!this.moduleToAppsMap.get(name).includes(appName)) {
+                            this.moduleToAppsMap.get(name).push(appName);
+                        }
+                    });
+                });
+            }
+        }
+    },
+
+    getAppsForModule(moduleName) {
+        return this.moduleToAppsMap.get(moduleName) || [];
     },
 
     processData(data) {
@@ -513,8 +559,10 @@ const TableManager = {
         for (const [key, versions] of grouped.entries()) {
             const [module, type, api] = key.split('|');
             const versionText = [...new Set(versions)].join(', ');
+            const apps = DataManager.getAppsForModule(module);
+            const appsText = apps.length > 0 ? apps.join(', ') : '-';
 
-            groupedDisplayRows.push({ module, type, api, version: versionText });
+            groupedDisplayRows.push({ module, type, api, version: versionText, apps: appsText });
 
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -522,6 +570,7 @@ const TableManager = {
                 <td class="type-${type}">${type}</td>
                 <td>${api}</td>
                 <td>${versionText}</td>
+                <td title="${appsText}">${appsText}</td>
                 <td>
                     <button class="view-usage-btn" data-api="${api}" title="View API usage details">
                         View Usage
@@ -573,6 +622,7 @@ const TableManager = {
                 <td class="type-${row.type}">${row.type}</td>
                 <td>${row.api}</td>
                 <td>${row.version}</td>
+                <td title="${row.apps}">${row.apps}</td>
                 <td>
                     <button class="view-usage-btn" data-api="${row.api}" title="View API usage details">
                         View Usage
@@ -616,6 +666,77 @@ const TableManager = {
                     ApiManager.selectApi(api);
                 }
             }, 50);
+        }
+    },
+
+    exportTableToCSV() {
+        if (!AppState.currentGroupedRows || AppState.currentGroupedRows.length === 0) {
+            console.warn('No data available for export');
+            alert('No data to export');
+            return;
+        }
+
+        // Prepare CSV data
+        const csvRows = [];
+
+        // CSV Header
+        csvRows.push(['Module', 'Type', 'API', 'Version(s)', 'Part of Apps']);
+
+        // CSV Body - use current grouped rows (respects filters and sorting)
+        for (const row of AppState.currentGroupedRows) {
+            csvRows.push([
+                row.module,
+                row.type,
+                row.api,
+                row.version,
+                row.apps
+            ]);
+        }
+
+        // Convert to CSV format
+        const csvContent = csvRows.map(row =>
+            row.map(field => {
+                // Escape quotes and wrap in quotes if contains comma, quote, or newline
+                const stringField = String(field);
+                if (stringField.includes(',') || stringField.includes('"') || stringField.includes('\n')) {
+                    return '"' + stringField.replace(/"/g, '""') + '"';
+                }
+                return stringField;
+            }).join(',')
+        ).join('\n');
+
+        // Download the file
+        this.downloadCSV(csvContent, 'folio-dependencies.csv');
+    },
+
+    downloadCSV(csvContent, fileName) {
+        try {
+            // Create blob with UTF-8 BOM for proper Excel handling
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + csvContent], {
+                type: 'text/csv;charset=utf-8;'
+            });
+
+            // Create download link
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+
+            link.setAttribute('href', url);
+            link.setAttribute('download', fileName);
+            link.style.visibility = 'hidden';
+
+            // Trigger download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Clean up
+            setTimeout(() => URL.revokeObjectURL(url), 100);
+
+            console.log(`CSV exported: ${fileName}`);
+        } catch (error) {
+            console.error('Error exporting CSV:', error);
+            alert('Error exporting CSV file. Please try again.');
         }
     }
 };
@@ -1053,6 +1174,401 @@ const ApiManager = {
     }
 };
 
+
+// App Dependencies Graph Manager
+const AppDependenciesGraphManager = {
+    cy: null,
+    appsData: null,
+    showDetails: true,
+
+    init(appsData) {
+        this.appsData = appsData;
+        this.initGraph();
+        this.buildGraph();
+        this.setupControls();
+    },
+
+    initGraph() {
+        const container = document.getElementById('app-dependencies-graph');
+        if (!container) return;
+
+        this.cy = cytoscape({
+            container: container,
+            elements: [],
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': 'data(color)',
+                        'label': 'data(label)',
+                        'text-valign': 'center',
+                        'text-halign': 'center',
+                        'color': 'white',
+                        'text-outline-color': 'data(color)',
+                        'text-outline-width': 2,
+                        'font-size': '12px',
+                        'width': '120px',
+                        'height': '50px',
+                        'shape': 'roundrectangle',
+                        'text-wrap': 'wrap',
+                        'text-max-width': '110px',
+                        'font-weight': 'bold'
+                    }
+                },
+                {
+                    selector: 'node:selected',
+                    style: {
+                        'border-width': 4,
+                        'border-color': '#f39c12',
+                        'border-style': 'solid'
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 2,
+                        'line-color': '#666',
+                        'target-arrow-color': '#666',
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier',
+                        'arrow-scale': 1.5
+                    }
+                },
+                {
+                    selector: 'edge.highlighted',
+                    style: {
+                        'width': 3,
+                        'line-color': '#e74c3c',
+                        'target-arrow-color': '#e74c3c',
+                        'z-index': 999
+                    }
+                },
+                {
+                    selector: 'node.highlighted',
+                    style: {
+                        'border-width': 3,
+                        'border-color': '#e74c3c',
+                        'border-style': 'solid'
+                    }
+                },
+                {
+                    selector: 'node.faded',
+                    style: {
+                        'opacity': 0.3
+                    }
+                },
+                {
+                    selector: 'edge.faded',
+                    style: {
+                        'opacity': 0.2
+                    }
+                }
+            ],
+            layout: {
+                name: 'breadthfirst',
+                directed: true,
+                padding: 50,
+                spacingFactor: 1.5
+            }
+        });
+
+        // Add interaction handlers
+        this.setupInteractions();
+    },
+
+    getNodeColor(platform) {
+        if (platform === 'base') return '#2980b9'; // Blue
+        if (platform === 'complete') return '#27ae60'; // Green
+        return '#e74c3c'; // Red for edge/other apps
+    },
+
+    buildGraph() {
+        if (!this.cy || !this.appsData) return;
+
+        const nodes = [];
+        const edges = [];
+        const addedEdges = new Set();
+
+        // Add nodes for each app
+        for (const [appName, appData] of Object.entries(this.appsData)) {
+            nodes.push({
+                group: 'nodes',
+                data: {
+                    id: appName,
+                    label: appName,
+                    color: this.getNodeColor(appData.platform),
+                    platform: appData.platform,
+                    version: appData.version,
+                    description: appData.description,
+                    moduleCount: (appData.modules || []).length,
+                    uiModuleCount: (appData.uiModules || []).length,
+                    dependencyCount: (appData.dependencies || []).length
+                }
+            });
+        }
+
+        // Add edges for dependencies
+        for (const [appName, appData] of Object.entries(this.appsData)) {
+            if (appData.dependencies && appData.dependencies.length > 0) {
+                appData.dependencies.forEach(dep => {
+                    const edgeId = `${appName}->${dep.name}`;
+                    if (!addedEdges.has(edgeId)) {
+                        edges.push({
+                            group: 'edges',
+                            data: {
+                                id: edgeId,
+                                source: appName,
+                                target: dep.name,
+                                version: dep.version
+                            }
+                        });
+                        addedEdges.add(edgeId);
+                    }
+                });
+            }
+        }
+
+        // Add all elements to graph
+        this.cy.add(nodes);
+        this.cy.add(edges);
+
+        // Apply initial layout
+        this.applyLayout('breadthfirst');
+    },
+
+    setupInteractions() {
+        if (!this.cy) return;
+
+        let clickTimeout = null;
+
+        // Single click - highlight dependencies
+        this.cy.on('tap', 'node', (evt) => {
+            const node = evt.target;
+
+            if (clickTimeout) {
+                clearTimeout(clickTimeout);
+                clickTimeout = null;
+                // Double click - focus on node
+                this.focusOnNode(node);
+                return;
+            }
+
+            clickTimeout = setTimeout(() => {
+                clickTimeout = null;
+                this.highlightDependencies(node);
+            }, 300);
+        });
+
+        // Click on background - reset highlights
+        this.cy.on('tap', (evt) => {
+            if (evt.target === this.cy) {
+                this.resetHighlights();
+            }
+        });
+
+        // Hover - show tooltip
+        this.cy.on('mouseover', 'node', (evt) => {
+            if (this.showDetails) {
+                this.showNodeTooltip(evt.target, evt.originalEvent);
+            }
+        });
+
+        this.cy.on('mouseout', 'node', () => {
+            this.hideNodeTooltip();
+        });
+    },
+
+    highlightDependencies(node) {
+        // Reset previous highlights
+        this.cy.elements().removeClass('highlighted faded');
+
+        // Highlight selected node
+        node.addClass('highlighted');
+
+        // Get dependencies (outgoing edges)
+        const outgoing = node.outgoers('edge');
+        const dependencies = node.outgoers('node');
+
+        // Get dependents (incoming edges)
+        const incoming = node.incomers('edge');
+        const dependents = node.incomers('node');
+
+        // Highlight all related elements
+        outgoing.addClass('highlighted');
+        dependencies.addClass('highlighted');
+        incoming.addClass('highlighted');
+        dependents.addClass('highlighted');
+
+        // Fade unrelated elements
+        this.cy.elements().not(node).not(outgoing).not(dependencies).not(incoming).not(dependents).addClass('faded');
+    },
+
+    resetHighlights() {
+        this.cy.elements().removeClass('highlighted faded');
+    },
+
+    focusOnNode(node) {
+        this.cy.animate({
+            fit: {
+                eles: node.closedNeighborhood(),
+                padding: 100
+            },
+            duration: 500
+        });
+
+        // Temporarily highlight
+        const originalColor = node.style('border-color');
+        node.animate({
+            style: {
+                'border-width': 5,
+                'border-color': '#f39c12'
+            }
+        }, {
+            duration: 300,
+            complete: () => {
+                node.animate({
+                    style: {
+                        'border-width': 0
+                    }
+                }, {
+                    duration: 300
+                });
+            }
+        });
+    },
+
+    showNodeTooltip(node, event) {
+        const data = node.data();
+        const tooltip = document.createElement('div');
+        tooltip.id = 'app-node-tooltip';
+        tooltip.style.cssText = `
+            position: fixed;
+            left: ${event.clientX + 15}px;
+            top: ${event.clientY + 15}px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 10000;
+            max-width: 300px;
+            font-size: 13px;
+            pointer-events: none;
+        `;
+
+        tooltip.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 5px; color: ${data.color};">${data.label}</div>
+            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">${data.description || 'No description'}</div>
+            <div style="border-top: 1px solid #eee; margin: 5px 0; padding-top: 5px;">
+                <div><strong>Platform:</strong> ${data.platform}</div>
+                <div><strong>Version:</strong> ${data.version || 'N/A'}</div>
+                <div><strong>Backend Modules:</strong> ${data.moduleCount}</div>
+                <div><strong>UI Modules:</strong> ${data.uiModuleCount}</div>
+                <div><strong>Dependencies:</strong> ${data.dependencyCount}</div>
+            </div>
+        `;
+
+        document.body.appendChild(tooltip);
+    },
+
+    hideNodeTooltip() {
+        const tooltip = document.getElementById('app-node-tooltip');
+        if (tooltip) {
+            tooltip.remove();
+        }
+    },
+
+    applyLayout(layoutName) {
+        if (!this.cy) return;
+
+        let layoutOptions = {
+            name: layoutName,
+            animate: true,
+            animationDuration: 500,
+            fit: true,
+            padding: 50
+        };
+
+        if (layoutName === 'breadthfirst') {
+            layoutOptions = {
+                ...layoutOptions,
+                directed: true,
+                spacingFactor: 1.8,
+                roots: this.findRootNodes()
+            };
+        } else if (layoutName === 'circle') {
+            layoutOptions = {
+                ...layoutOptions,
+                spacingFactor: 1.5
+            };
+        }
+
+        this.cy.layout(layoutOptions).run();
+    },
+
+    findRootNodes() {
+        // Find nodes with no incoming edges (top-level apps)
+        const roots = [];
+        this.cy.nodes().forEach(node => {
+            if (node.incomers('edge').length === 0) {
+                roots.push('#' + node.id());
+            }
+        });
+        return roots.length > 0 ? roots.join(',') : undefined;
+    },
+
+    setupControls() {
+        // Fit to view
+        document.getElementById('app-deps-fit')?.addEventListener('click', () => {
+            if (this.cy) {
+                this.cy.fit(null, 50);
+            }
+        });
+
+        // Reset graph
+        document.getElementById('app-deps-reset')?.addEventListener('click', () => {
+            this.resetHighlights();
+            this.applyLayout('breadthfirst');
+        });
+
+        // Hierarchical layout
+        document.getElementById('app-deps-layout-hierarchy')?.addEventListener('click', () => {
+            this.applyLayout('breadthfirst');
+        });
+
+        // Circle layout
+        document.getElementById('app-deps-layout-circle')?.addEventListener('click', () => {
+            this.applyLayout('circle');
+        });
+
+        // Export PNG
+        document.getElementById('app-deps-export-png')?.addEventListener('click', () => {
+            this.exportGraph();
+        });
+
+        // Show details toggle
+        document.getElementById('app-deps-show-details')?.addEventListener('change', (e) => {
+            this.showDetails = e.target.checked;
+        });
+    },
+
+    exportGraph() {
+        if (!this.cy) return;
+
+        const png64 = this.cy.png({
+            output: 'blob',
+            bg: 'white',
+            full: true,
+            scale: 2
+        });
+
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(png64);
+        link.download = 'folio-app-dependencies.png';
+        link.click();
+    }
+};
+
 // Main application initialization
 const App = {
     async init() {
@@ -1062,12 +1578,15 @@ const App = {
             const rows = await DataManager.loadDependencies();
             AppState.allRows = rows;
 
-            // Build the API index FIRST, before initializing API search
-            AppState.globalApiIndex = DataManager.buildApiIndex(rows);
-
             // Load apps data
             const appsData = await DataManager.loadApps();
             AppState.appsData = appsData;
+
+            // Build module to apps mapping
+            DataManager.buildModuleToAppsMap(appsData);
+
+            // Build the API index FIRST, before initializing API search
+            AppState.globalApiIndex = DataManager.buildApiIndex(rows);
 
             // Initialize components (order matters!)
             this.initTable();
@@ -1079,6 +1598,12 @@ const App = {
 
             // Initialize apps view
             AppsManager.init(appsData);
+
+            // Initialize table export
+            this.initTableExport();
+
+            // Initialize app dependencies graph
+            this.initAppDependenciesGraph();
 
             // Render initial data
             TableManager.renderTable(AppState.allRows);
@@ -1094,6 +1619,40 @@ const App = {
 
     initTable() {
         TableManager.renderTable(AppState.allRows);
+    },
+
+    initTableExport() {
+        const exportBtn = document.getElementById('export-table-csv');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                TableManager.exportTableToCSV();
+            });
+        }
+    },
+
+    initAppDependenciesGraph() {
+        // Check if Cytoscape is available
+        if (typeof cytoscape === 'undefined') {
+            console.error('Cytoscape.js library not loaded');
+            const container = document.getElementById('app-dependencies-graph');
+            if (container) {
+                container.innerHTML = '<p style="color: red; padding: 20px;">Graph visualization library not loaded. Please check that Cytoscape.js is included.</p>';
+            }
+            return;
+        }
+
+        // Initialize when the tab becomes visible
+        const appDepsTab = document.querySelector('.tab-button[data-tab="app-dependencies"]');
+        if (appDepsTab) {
+            appDepsTab.addEventListener('click', () => {
+                // Initialize only once
+                if (!AppDependenciesGraphManager.cy && AppState.appsData) {
+                    setTimeout(() => {
+                        AppDependenciesGraphManager.init(AppState.appsData);
+                    }, 100);
+                }
+            });
+        }
     },
 
     initTableSearch() {

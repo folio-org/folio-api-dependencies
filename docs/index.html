@@ -15,23 +15,30 @@
     <button data-tab="api" class="tab-button">🔎 API Usage View</button>
     <button data-tab="module-consumers" class="tab-button">🌐 Module Consumers</button>
     <button data-tab="apps" class="tab-button">📦 Apps</button>
+    <button data-tab="app-dependencies" class="tab-button">🔗 App Dependencies</button>
 </div>
 
 <div id="view-table" class="tab-view">
-    <div style="position: relative; max-width: 400px;">
-      <input id="table-search" type="text" placeholder="Search module or API…" autocomplete="off" />
-      <button id="table-clear" style="
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-        border: none;
-        background: transparent;
-        font-size: 16px;
-        cursor: pointer;
-        display: none;
-      " title="Clear">×</button>
-      <div id="table-dropdown" class="dropdown"></div>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1em;">
+        <div style="position: relative; max-width: 400px;">
+            <input id="table-search" type="text" placeholder="Search module or API…" autocomplete="off" />
+            <button id="table-clear" style="
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+          " title="Clear">×</button>
+            <div id="table-dropdown" class="dropdown"></div>
+        </div>
+
+        <button id="export-table-csv" class="export-csv-btn" title="Export table data to CSV">
+            📊 Export CSV
+        </button>
     </div>
 
     <div id="table-match-count" style="margin-top: 0.5em; font-size: 14px;"></div>
@@ -44,6 +51,7 @@
             <th data-sort="type">Type</th>
             <th data-sort="api">API</th>
             <th data-sort="version">Version(s)</th>
+            <th data-sort="apps">Part of App</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -90,6 +98,46 @@
         " title="Clear">×</button>
     </div>
     <div id="apps-container"></div>
+</div>
+
+<div id="view-app-dependencies" class="tab-view">
+    <h3>App Dependencies Graph</h3>
+    <div class="app-dependencies-controls" style="margin: 15px 0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+        <button id="app-deps-fit" class="graph-btn">Fit to View</button>
+        <button id="app-deps-reset" class="graph-btn">Reset Graph</button>
+        <button id="app-deps-layout-hierarchy" class="graph-btn">Hierarchical Layout</button>
+        <button id="app-deps-layout-circle" class="graph-btn">Circle Layout</button>
+        <button id="app-deps-export-png" class="graph-btn">Export PNG</button>
+        <label style="display: flex; align-items: center; gap: 5px; margin-left: auto;">
+            <input type="checkbox" id="app-deps-show-details" checked />
+            <span style="font-size: 14px;">Show module details on hover</span>
+        </label>
+    </div>
+    <div id="app-dependencies-graph" style="width: 100%; height: 700px; border: 1px solid #ddd; background: #fafafa;"></div>
+    <div id="app-dependencies-legend" style="margin-top: 15px; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px;">
+        <h4 style="margin-top: 0;">Legend</h4>
+        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 20px; height: 20px; background: #2980b9; border-radius: 3px;"></div>
+                <span>Base platform apps</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 20px; height: 20px; background: #27ae60; border-radius: 3px;"></div>
+                <span>Complete platform apps</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 20px; height: 20px; background: #e74c3c; border-radius: 3px;"></div>
+                <span>Edge/Integration apps</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 15px solid #666;"></div>
+                <span>Dependency direction</span>
+            </div>
+        </div>
+        <p style="margin-top: 10px; font-size: 13px; color: #666;">
+            <strong>Tip:</strong> Click on a node to highlight its dependencies. Double-click to focus. Scroll to zoom. Drag to pan.
+        </p>
+    </div>
 </div>
 
 <script src="script.js"></script>

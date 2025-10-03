@@ -348,6 +348,35 @@ th.desc::after {
     padding: 8px;
 }
 
+/* App Dependencies Graph Styles */
+.app-dependencies-controls .graph-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.app-dependencies-controls .graph-btn:hover {
+    background-color: #1976d2;
+}
+
+.app-dependencies-controls .graph-btn:active {
+    background-color: #1565c0;
+}
+
+#app-dependencies-graph {
+    position: relative;
+}
+
+#app-dependencies-legend h4 {
+    color: #333;
+    font-size: 16px;
+}
+
 
 
 
