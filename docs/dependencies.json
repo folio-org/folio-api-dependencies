@@ -11089,5 +11089,19 @@
   "stripes-hub": {
     "requires": [],
     "optional": []
+  },
+  "mod-rtac-cache": {
+    "provides": [
+      {
+        "id": "rtac-cache",
+        "version": "1.0"
+      },
+      {
+        "id": "_tenant",
+        "version": "1.2"
+      }
+    ],
+    "requires": [],
+    "optional": []
   }
 }
