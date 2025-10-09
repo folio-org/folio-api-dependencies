@@ -4193,15 +4193,16 @@
     ],
     "requires": [
       {
-        "id": "patron-notice-policy-storage",
-        "version": "0.13"
-      },
-      {
         "id": "settings",
         "version": "1.2"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "patron-notice-policy-storage",
+        "version": "0.13"
+      }
+    ]
   },
   "stripes-testing": {
     "requires": [],
