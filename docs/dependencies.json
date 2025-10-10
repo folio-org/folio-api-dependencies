@@ -44,13 +44,13 @@
         "version": "1.2"
       }
     ],
-    "requires": [
+    "requires": [],
+    "optional": [
       {
         "id": "feesfines",
         "version": "19.1"
       }
-    ],
-    "optional": []
+    ]
   },
   "stripes-components": {
     "requires": [],
