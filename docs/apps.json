@@ -871,10 +871,6 @@
       {
         "name": "app-acquisitions",
         "version": "^1.1.0-SNAPSHOT"
-      },
-      {
-        "name": "app-linked-data",
-        "version": "^1.1.0-SNAPSHOT"
       }
     ],
     "modules": [

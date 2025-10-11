@@ -7892,7 +7892,7 @@
       },
       {
         "id": "instance-authority-links-statistics",
-        "version": "2.0"
+        "version": "2.1"
       },
       {
         "id": "holdings-note-types",
@@ -9774,6 +9774,10 @@
       {
         "id": "permissions-users",
         "version": "1.0"
+      },
+      {
+        "id": "linked-data",
+        "version": "2.0"
       }
     ]
   },
