@@ -5,7 +5,7 @@ const path = require('path');
 const ORG = 'folio-org';
 const GITHUB_API = 'https://api.github.com';
 const RAW_BASE = 'https://raw.githubusercontent.com';
-const OUTPUT_FILE = path.join(__dirname, 'docs', 'apps.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'web', 'apps.json');
 const HEADERS = {
     'User-Agent': 'folio-dependency-graph',
     // 'Authorization': 'token <TOKEN>', // Optional: for higher rate limit

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Test - FOLIO API Dependencies</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Module Loading Test</h1>
+    <p>This page tests if the modular JavaScript loads correctly.</p>
+    
+    <div id="status"></div>
+    
+    <h2>Test Results:</h2>
+    <div id="results"></div>
+    
+    <h2>Actions:</h2>
+    <button onclick="window.location.href='index.html'">Go to Main App</button>
+    <button onclick="location.reload()">Reload Test</button>
+    
+    <script type="module">
+        const statusDiv = document.getElementById('status');
+        const resultsDiv = document.getElementById('results');
+        
+        function addStatus(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = message;
+            statusDiv.appendChild(div);
+        }
+        
+        function addResult(name, result, details = '') {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h3>${result ? '✅' : '❌'} ${name}</h3>
+                ${details ? `<pre>${details}</pre>` : ''}
+            `;
+            resultsDiv.appendChild(div);
+        }
+        
+        addStatus('Starting module test...', 'info');
+        
+        try {
+            // Test imports
+            const { AppState } = await import('./js/core/state.js');
+            addResult('Core: state.js', true, 'AppState loaded successfully');
+            
+            const { Utils } = await import('./js/core/utils.js');
+            addResult('Core: utils.js', true, 'Utils loaded successfully');
+            
+            const { DropdownComponent } = await import('./js/core/dropdown.js');
+            addResult('Core: dropdown.js', true, 'DropdownComponent loaded successfully');
+            
+            const { DataManager } = await import('./js/managers/data-manager.js');
+            addResult('Manager: data-manager.js', true, 'DataManager loaded successfully');
+            
+            const { TableManager } = await import('./js/managers/table-manager.js');
+            addResult('Manager: table-manager.js', true, 'TableManager loaded successfully');
+            
+            const { ApiManager } = await import('./js/managers/api-manager.js');
+            addResult('Manager: api-manager.js', true, 'ApiManager loaded successfully');
+            
+            const { AppsManager } = await import('./js/managers/apps-manager.js');
+            addResult('Manager: apps-manager.js', true, 'AppsManager loaded successfully');
+            
+            const { AppDependenciesGraphManager } = await import('./js/managers/graph-manager.js');
+            addResult('Manager: graph-manager.js', true, 'AppDependenciesGraphManager loaded successfully');
+            
+            const { ModuleGraphManager } = await import('./js/managers/module-consumers-graph.js');
+            addResult('Manager: module-consumers-graph.js', true, 'ModuleGraphManager loaded successfully');
+            
+            const { App } = await import('./js/app.js');
+            addResult('App: app.js', true, 'Main App loaded successfully');
+            
+            // Test basic functionality
+            const testVersion = Utils.getMajorVersion('1.2.3');
+            addResult('Utils.getMajorVersion', testVersion === 1, `getMajorVersion('1.2.3') = ${testVersion}`);
+            
+            addStatus('✅ All modules loaded successfully!', 'success');
+            
+        } catch (error) {
+            addStatus(`❌ Error loading modules: ${error.message}`, 'error');
+            addResult('Module Loading', false, error.stack);
+            console.error('Module loading error:', error);
+        }
+    </script>
+</body>
+</html>

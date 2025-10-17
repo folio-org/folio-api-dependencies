@@ -10,7 +10,7 @@ const MOD_FILE_CANDIDATES = [
 const UI_FILE = 'package.json';
 const GITHUB_API = 'https://api.github.com';
 const RAW_BASE = 'https://raw.githubusercontent.com';
-const OUTPUT_FILE = path.join(__dirname, 'docs', 'dependencies.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'web', 'dependencies.json');
 const HEADERS = {
     'User-Agent': 'folio-dependency-graph',
     // 'Authorization': 'token <TOKEN>', // Optional: for higher rate limit

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>FOLIO API Dependencies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.css">
 </head>
 <body>
@@ -140,8 +140,14 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<!-- Load Cytoscape first (required by graph-manager) -->
 <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+
+<!-- Load modular app (ES6 modules) -->
+<script type="module" src="js/app.js"></script>
+
+<!-- Fallback: Original monolithic script for older browsers -->
+<!-- <script nomodule src="script.js"></script> -->
 
 </body>
 

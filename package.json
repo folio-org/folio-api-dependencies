@@ -1,14 +1,17 @@
 {
   "name": "folio-dependency-graph",
   "version": "1.0.0",
-  "description": "",
+  "description": "FOLIO API Dependencies",
   "main": "index.js",
   "scripts": {
+    "fetch:modules": "node src/fetchers/fetch-descriptors.js",
+    "fetch:apps": "node src/fetchers/fetch-apps.js",
+    "fetch:all": "npm run fetch:modules && npm run fetch:apps",
+    "serve": "cd docs && python3 -m http.server 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["folio", "dependencies", "api"],
   "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "node-fetch": "^2.7.0"
