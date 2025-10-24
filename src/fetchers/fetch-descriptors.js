@@ -41,7 +41,7 @@ async function tryFetchDescriptor(repo) {
         console.log(`Skipping archived repo: ${repo.name}`);
         return null;
     }
-    if (repo.name.startsWith('mod-')) {
+    if (repo.name.startsWith('mod-') || repo.name.startsWith('edge-')) {
         for (const candidate of MOD_FILE_CANDIDATES) {
             const url = `${RAW_BASE}/${ORG}/${repo.name}/${repo.default_branch}/${candidate}`;
             try {
@@ -80,7 +80,7 @@ async function buildDependencyMap() {
 
         const modId = repo.name;
 
-        if (modId.startsWith('mod-')) {
+        if (modId.startsWith('mod-') || modId.startsWith('edge-')) {
             map[modId] = {
                 provides: (descriptor.provides || []).map(p => ({
                     id: p.id,
