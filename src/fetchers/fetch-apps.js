@@ -5,6 +5,7 @@ const path = require('path');
 const ORG = 'folio-org';
 const GITHUB_API = 'https://api.github.com';
 const RAW_BASE = 'https://raw.githubusercontent.com';
+const DEFAULT_BRANCH = 'snapshot';
 const OUTPUT_FILE = path.join(__dirname, '..', 'web', 'apps.json');
 const HEADERS = {
     'User-Agent': 'folio-dependency-graph',
@@ -31,7 +32,7 @@ async function fetchAllRepos() {
 }
 
 async function tryFetchAppDescriptor(repo) {
-    console.log('Repo: ', repo.name, 'Default branch: ', repo.default_branch);
+    console.log('Repo: ', repo.name, `Branch: ', ${DEFAULT_BRANCH}`);
     if (repo.archived) {
         console.log(`Skipping archived repo: ${repo.name}`);
         return null;
@@ -42,7 +43,7 @@ async function tryFetchAppDescriptor(repo) {
     }
 
     const appFile = `${repo.name}.template.json`;
-    const url = `${RAW_BASE}/${ORG}/${repo.name}/${repo.default_branch}/${appFile}`;
+    const url = `${RAW_BASE}/${ORG}/${repo.name}/${DEFAULT_BRANCH}/${appFile}`;
     try {
         const res = await fetch(url, {headers: HEADERS});
         if (res.status === 404) {
