@@ -11079,10 +11079,6 @@
   "mod-linked-data-import": {
     "provides": [
       {
-        "id": "_tenant",
-        "version": "2.0"
-      },
-      {
         "id": "linked-data-import",
         "version": "1.0"
       }
