@@ -1118,5 +1118,26 @@
         "version": "latest"
       }
     ]
+  },
+  "app-data-export": {
+    "platform": "base",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-data-export",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_data-export",
+        "version": "latest"
+      }
+    ]
   }
 }
