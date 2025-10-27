@@ -149,10 +149,6 @@
         "version": "latest"
       },
       {
-        "name": "mod-data-export",
-        "version": "latest"
-      },
-      {
         "name": "mod-data-export-spring",
         "version": "latest"
       },
@@ -280,10 +276,6 @@
       },
       {
         "name": "folio_plugin-find-user",
-        "version": "latest"
-      },
-      {
-        "name": "folio_data-export",
         "version": "latest"
       },
       {
@@ -1124,7 +1116,7 @@
     "dependencies": [
       {
         "name": "app-platform-complete",
-        "version": "^3.0.0-SNAPSHOT"
+        "version": "^3.1.0-SNAPSHOT"
       }
     ],
     "modules": [
