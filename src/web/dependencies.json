@@ -3452,7 +3452,7 @@
       },
       {
         "id": "counter-reports",
-        "version": "4.1"
+        "version": "5.0"
       },
       {
         "id": "custom-reports",
@@ -3478,7 +3478,7 @@
       },
       {
         "id": "counter-reports",
-        "version": "4.0"
+        "version": "5.0"
       },
       {
         "id": "custom-reports",
@@ -11557,6 +11557,10 @@
   },
   "mod-linked-data-import": {
     "provides": [
+      {
+        "id": "_tenant",
+        "version": "2.0"
+      },
       {
         "id": "linked-data-import",
         "version": "1.0"

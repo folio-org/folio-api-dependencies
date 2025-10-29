@@ -259,10 +259,6 @@
         "version": "latest"
       },
       {
-        "name": "folio_plugin-find-package-title",
-        "version": "latest"
-      },
-      {
         "name": "folio_checkin",
         "version": "latest"
       },
@@ -1086,6 +1082,10 @@
     "uiModules": [
       {
         "name": "folio_eholdings",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-package-title",
         "version": "latest"
       }
     ]
