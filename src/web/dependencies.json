@@ -3604,6 +3604,10 @@
   "mod-gobi": {
     "provides": [
       {
+        "id": "_tenant",
+        "version": "2.0"
+      },
+      {
         "id": "gobi",
         "version": "1.12"
       },
@@ -7336,27 +7340,6 @@
   },
   "stripes-template-editor": {
     "requires": [],
-    "optional": []
-  },
-  "ui-lti-courses": {
-    "requires": [
-      {
-        "id": "configuration",
-        "version": "2.0"
-      },
-      {
-        "id": "configuration",
-        "version": "3.0"
-      },
-      {
-        "id": "configuration",
-        "version": "4.0"
-      },
-      {
-        "id": "configuration",
-        "version": "5.0"
-      }
-    ],
     "optional": []
   },
   "ui-plugin-create-inventory-records": {
