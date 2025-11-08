@@ -1131,5 +1131,21 @@
         "version": "latest"
       }
     ]
+  },
+  "app-search": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-search",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
   }
 }
