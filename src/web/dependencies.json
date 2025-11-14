@@ -3391,10 +3391,6 @@
       {
         "id": "allowed-service-points",
         "version": "1.2"
-      },
-      {
-        "id": "requests-mediated-batch",
-        "version": "1.0"
       }
     ]
   },
@@ -4907,7 +4903,7 @@
     "provides": [
       {
         "id": "oai-pmh",
-        "version": "3.4"
+        "version": "3.5"
       },
       {
         "id": "_tenant",
@@ -11495,33 +11491,6 @@
   "stripes-build": {
     "requires": [],
     "optional": []
-  },
-  "mod-inventory-import": {
-    "provides": [
-      {
-        "id": "_tenant",
-        "version": "2.0"
-      },
-      {
-        "id": "inventory-import",
-        "version": "1.0"
-      },
-      {
-        "id": "_timer",
-        "version": "1.0"
-      }
-    ],
-    "requires": [],
-    "optional": [
-      {
-        "id": "settings",
-        "version": "1.0"
-      },
-      {
-        "id": "configuration",
-        "version": "2.0"
-      }
-    ]
   },
   "mod-mosaic": {
     "provides": [
