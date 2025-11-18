@@ -7077,12 +7077,8 @@
   "ui-oai-pmh": {
     "requires": [
       {
-        "id": "configuration",
-        "version": "2.0"
-      },
-      {
         "id": "oai-pmh",
-        "version": "3.0"
+        "version": "3.5"
       }
     ],
     "optional": []
