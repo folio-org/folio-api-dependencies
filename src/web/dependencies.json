@@ -3618,8 +3618,8 @@
         "version": "13.0"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
+        "id": "settings",
+        "version": "1.2"
       },
       {
         "id": "contributor-name-types",
@@ -4510,6 +4510,14 @@
       {
         "id": "data-import-converter-storage",
         "version": "1.5"
+      },
+      {
+        "id": "settings",
+        "version": "1.0"
+      },
+      {
+        "id": "orders-storage.settings",
+        "version": "1.0"
       }
     ],
     "optional": [
@@ -8109,10 +8117,6 @@
       {
         "id": "inventory",
         "version": "14.0"
-      },
-      {
-        "id": "configuration",
-        "version": "2.0"
       },
       {
         "id": "feesfines",
