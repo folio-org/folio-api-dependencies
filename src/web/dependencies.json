@@ -1144,7 +1144,7 @@
       },
       {
         "id": "loan-types",
-        "version": "2.3"
+        "version": "2.4"
       },
       {
         "id": "material-types",
@@ -4514,10 +4514,6 @@
       {
         "id": "settings",
         "version": "1.0"
-      },
-      {
-        "id": "orders-storage.settings",
-        "version": "1.0"
       }
     ],
     "optional": [
@@ -4628,6 +4624,10 @@
       {
         "id": "configuration",
         "version": "2.0"
+      },
+      {
+        "id": "orders-storage.settings",
+        "version": "1.0"
       }
     ]
   },
@@ -11570,7 +11570,76 @@
         "version": "1.2"
       }
     ],
-    "requires": [],
+    "requires": [
+      {
+        "id": "item-storage",
+        "version": "10.2"
+      },
+      {
+        "id": "holdings-storage",
+        "version": "8.0"
+      },
+      {
+        "id": "loan-types",
+        "version": "2.3"
+      },
+      {
+        "id": "material-types",
+        "version": "2.2"
+      },
+      {
+        "id": "location-units",
+        "version": "2.0"
+      },
+      {
+        "id": "locations",
+        "version": "3.1"
+      },
+      {
+        "id": "holdings-note-types",
+        "version": "1.0"
+      },
+      {
+        "id": "loan-storage",
+        "version": "7.1"
+      },
+      {
+        "id": "loan-storage",
+        "version": "7.3"
+      },
+      {
+        "id": "circulation",
+        "version": "14.2"
+      },
+      {
+        "id": "circulation",
+        "version": "14.6"
+      },
+      {
+        "id": "pieces",
+        "version": "3.0"
+      },
+      {
+        "id": "pieces",
+        "version": "3.1"
+      },
+      {
+        "id": "user-tenants",
+        "version": "1.0"
+      },
+      {
+        "id": "search-facets",
+        "version": "1.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.1"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
+      }
+    ],
     "optional": []
   }
 }
