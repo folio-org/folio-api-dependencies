@@ -1147,5 +1147,25 @@
       }
     ],
     "uiModules": []
+  },
+  "app-rtac-cache": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-rtac",
+        "version": "^1.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-platform-complete",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-rtac-cache",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
   }
 }
