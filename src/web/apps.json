@@ -1167,5 +1167,20 @@
       }
     ],
     "uiModules": []
+  },
+  "app-marc-storage": {
+    "platform": "complete",
+    "dependencies": [],
+    "modules": [
+      {
+        "name": "mod-source-record-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-record-specifications",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
   }
 }
