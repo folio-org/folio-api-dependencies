@@ -10533,7 +10533,7 @@
       },
       {
         "id": "requests-mediated-loans",
-        "version": "1.3"
+        "version": "1.4"
       },
       {
         "id": "requests-mediated-batch",
@@ -11230,7 +11230,7 @@
       },
       {
         "id": "requests-mediated-loans",
-        "version": "1.3"
+        "version": "1.4"
       },
       {
         "id": "ecs-tlr-allowed-service-points",
