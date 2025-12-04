@@ -5921,7 +5921,7 @@
       },
       {
         "id": "finc-config-files",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "finc-config-ezb-credentials",
@@ -5949,7 +5949,7 @@
       },
       {
         "id": "finc-select-files",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "finc-select-ezb-credentials",
