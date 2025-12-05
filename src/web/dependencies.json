@@ -9672,6 +9672,10 @@
       {
         "id": "transactions",
         "version": "1.6"
+      },
+      {
+        "id": "dcb_refresh_shadow_locations",
+        "version": "2.0"
       }
     ],
     "optional": []
@@ -9688,7 +9692,7 @@
       },
       {
         "id": "dcb_refresh_shadow_locations",
-        "version": "1.0"
+        "version": "2.0"
       },
       {
         "id": "_tenant",
