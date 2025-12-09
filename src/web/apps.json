@@ -97,6 +97,10 @@
       {
         "name": "app-search",
         "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -173,10 +177,6 @@
         "version": "latest"
       },
       {
-        "name": "mod-source-record-storage",
-        "version": "latest"
-      },
-      {
         "name": "mod-data-import",
         "version": "latest"
       },
@@ -222,10 +222,6 @@
       },
       {
         "name": "mod-batch-print",
-        "version": "latest"
-      },
-      {
-        "name": "mod-record-specifications",
         "version": "latest"
       }
     ],
@@ -467,6 +463,14 @@
       {
         "name": "app-platform-complete",
         "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -492,6 +496,10 @@
       {
         "name": "app-platform-complete",
         "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -605,6 +613,10 @@
       {
         "name": "app-platform-complete",
         "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -752,6 +764,10 @@
       {
         "name": "app-platform-complete",
         "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -777,6 +793,14 @@
       {
         "name": "app-fqm",
         "version": "^1.2.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -1117,6 +1141,14 @@
       {
         "name": "app-platform-complete",
         "version": "^3.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
