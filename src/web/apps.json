@@ -1210,5 +1210,34 @@
       }
     ],
     "uiModules": []
+  },
+  "app-quick-marc": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-quick-marc",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "ui-quick-marc",
+        "version": "latest"
+      },
+      {
+        "name": "stripes-marc-components",
+        "version": "latest"
+      }
+    ]
   }
 }
