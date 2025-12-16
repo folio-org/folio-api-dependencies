@@ -3274,7 +3274,15 @@
     "provides": [
       {
         "id": "patron",
-        "version": "6.5"
+        "version": "6.6"
+      },
+      {
+        "id": "patron.settings",
+        "version": "1.0"
+      },
+      {
+        "id": "_tenant",
+        "version": "2.0"
       }
     ],
     "requires": [
@@ -3382,7 +3390,7 @@
       },
       {
         "id": "circulation-bff-requests",
-        "version": "1.3"
+        "version": "1.4"
       },
       {
         "id": "allowed-service-points",

@@ -1239,5 +1239,41 @@
         "version": "latest"
       }
     ]
+  },
+  "app-notification": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-batch-print",
+        "version": "latest"
+      },
+      {
+        "name": "mod-email",
+        "version": "latest"
+      },
+      {
+        "name": "mod-event-config",
+        "version": "latest"
+      },
+      {
+        "name": "mod-notify",
+        "version": "latest"
+      },
+      {
+        "name": "mod-sender",
+        "version": "latest"
+      },
+      {
+        "name": "mod-template-engine",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
   }
 }
