@@ -9383,6 +9383,10 @@
         "version": "2.0"
       },
       {
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
         "id": "settings",
         "version": "1.2"
       }
@@ -9393,7 +9397,12 @@
         "version": "2.1"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "configuration",
+        "version": "2.0"
+      }
+    ]
   },
   "ui-plugin-query-builder": {
     "requires": [
