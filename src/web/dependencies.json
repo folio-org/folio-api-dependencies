@@ -3403,7 +3403,7 @@
     "requires": [
       {
         "id": "patron",
-        "version": "6.5"
+        "version": "6.6"
       },
       {
         "id": "circulation",
@@ -11437,11 +11437,6 @@
         "version": "3.4"
       }
     ],
-    "optional": []
-  },
-  "mod-graph-rebuilder": {
-    "provides": [],
-    "requires": [],
     "optional": []
   },
   "ui-claims": {
