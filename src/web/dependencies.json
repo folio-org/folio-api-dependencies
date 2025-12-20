@@ -7254,6 +7254,10 @@
   "mod-inventory-update": {
     "provides": [
       {
+        "id": "_tenant",
+        "version": "2.0"
+      },
+      {
         "id": "inventory-upsert-hrid",
         "version": "3.0"
       },
@@ -7268,6 +7272,14 @@
       {
         "id": "shared-inventory-batch-upsert-matchkey",
         "version": "3.0"
+      },
+      {
+        "id": "inventory-import",
+        "version": "1.0"
+      },
+      {
+        "id": "_timer",
+        "version": "1.0"
       }
     ],
     "requires": [
@@ -7368,6 +7380,14 @@
       {
         "id": "orders-storage.po-lines",
         "version": "13.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.0"
+      },
+      {
+        "id": "configuration",
+        "version": "2.0"
       }
     ]
   },
