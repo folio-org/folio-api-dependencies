@@ -376,6 +376,30 @@
     ],
     "uiModules": []
   },
+  "app-edge-locate": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "edge-inventory",
+        "version": "latest"
+      },
+      {
+        "name": "edge-users",
+        "version": "latest"
+      }
+    ],
+    "uiModules": []
+  },
   "app-consortia": {
     "platform": "complete",
     "dependencies": [

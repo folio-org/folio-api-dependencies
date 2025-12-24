@@ -10214,15 +10214,16 @@
   "stripes-marc-components": {
     "requires": [
       {
-        "id": "instance-authority-linking-rules",
-        "version": "1.1"
-      },
-      {
         "id": "audit-marc",
         "version": "1.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "instance-authority-linking-rules",
+        "version": "1.1"
+      }
+    ]
   },
   "mod-reporting": {
     "provides": [
@@ -10645,6 +10646,10 @@
       {
         "id": "request-storage",
         "version": "6.1"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": [
