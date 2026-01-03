@@ -1933,14 +1933,6 @@
         "version": "1.0"
       },
       {
-        "id": "audit-config",
-        "version": "1.0"
-      },
-      {
-        "id": "audit-marc",
-        "version": "1.0"
-      },
-      {
         "id": "call-number-types",
         "version": "1.0"
       },
@@ -2196,6 +2188,14 @@
     "optional": [
       {
         "id": "acquisition-methods",
+        "version": "1.0"
+      },
+      {
+        "id": "audit-config",
+        "version": "1.0"
+      },
+      {
+        "id": "audit-marc",
         "version": "1.0"
       },
       {
