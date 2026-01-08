@@ -4004,6 +4004,10 @@
         "version": "1.0"
       },
       {
+        "id": "orders.holding-detail",
+        "version": "1.0"
+      },
+      {
         "id": "orders.export-history",
         "version": "1.0"
       },
