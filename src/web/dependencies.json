@@ -7068,19 +7068,17 @@
   "ui-quick-marc": {
     "requires": [
       {
-        "id": "inventory",
-        "version": "14.0"
-      },
-      {
         "id": "marc-records-editor",
         "version": "6.0"
       },
       {
-        "id": "search-authorities",
-        "version": "1.0"
-      },
-      {
         "id": "marc-specifications",
+        "version": "1.0"
+      }
+    ],
+    "optional": [
+      {
+        "id": "search-authorities",
         "version": "1.0"
       },
       {
@@ -7090,9 +7088,12 @@
       {
         "id": "instance-authority-links",
         "version": "2.1"
+      },
+      {
+        "id": "instance-authority-linking-rules",
+        "version": "1.1"
       }
-    ],
-    "optional": []
+    ]
   },
   "ui-oai-pmh": {
     "requires": [
