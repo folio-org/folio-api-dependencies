@@ -11424,6 +11424,10 @@
       {
         "id": "settings",
         "version": "1.1"
+      },
+      {
+        "id": "authority-source-files",
+        "version": "2.2"
       }
     ],
     "optional": []
