@@ -42,6 +42,10 @@
       {
         "id": "staging-users",
         "version": "1.2"
+      },
+      {
+        "id": "users.settings",
+        "version": "1.0"
       }
     ],
     "requires": [],
@@ -111,6 +115,10 @@
       {
         "id": "users",
         "version": "16.4"
+      },
+      {
+        "id": "users.settings",
+        "version": "1.0"
       },
       {
         "id": "configuration",
@@ -1616,6 +1624,10 @@
       {
         "id": "users",
         "version": "16.4"
+      },
+      {
+        "id": "users.settings",
+        "version": "1.0"
       },
       {
         "id": "inventory",
@@ -11077,6 +11089,10 @@
       {
         "id": "users",
         "version": "16.3"
+      },
+      {
+        "id": "users.settings",
+        "version": "1.0"
       },
       {
         "id": "automated-patron-blocks",
