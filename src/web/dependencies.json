@@ -93,6 +93,10 @@
         "version": "1.0"
       },
       {
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
         "id": "login-saml",
         "version": "2.0"
       },
