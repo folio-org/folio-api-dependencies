@@ -103,6 +103,10 @@
         "version": "^1.0.0-SNAPSHOT"
       },
       {
+        "name": "app-notification",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
         "name": "app-quick-marc",
         "version": "^1.0.0-SNAPSHOT"
       }
@@ -181,26 +185,6 @@
         "version": "latest"
       },
       {
-        "name": "mod-email",
-        "version": "latest"
-      },
-      {
-        "name": "mod-event-config",
-        "version": "latest"
-      },
-      {
-        "name": "mod-notify",
-        "version": "latest"
-      },
-      {
-        "name": "mod-sender",
-        "version": "latest"
-      },
-      {
-        "name": "mod-template-engine",
-        "version": "latest"
-      },
-      {
         "name": "mod-pubsub",
         "version": "latest"
       },
@@ -218,10 +202,6 @@
       },
       {
         "name": "mod-user-import",
-        "version": "latest"
-      },
-      {
-        "name": "mod-batch-print",
         "version": "latest"
       }
     ],
