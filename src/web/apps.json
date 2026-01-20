@@ -1271,5 +1271,46 @@
       }
     ],
     "uiModules": []
+  },
+  "app-authority-records": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-quick-marc",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-entities-links",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "ui-marc-authorities",
+        "version": "latest"
+      },
+      {
+        "name": "ui-plugin-find-authority",
+        "version": "latest"
+      },
+      {
+        "name": "stripes-authority-components",
+        "version": "latest"
+      }
+    ]
   }
 }
