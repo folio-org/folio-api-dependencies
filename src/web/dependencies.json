@@ -3393,6 +3393,10 @@
       {
         "id": "holdings-storage",
         "version": "8.0"
+      },
+      {
+        "id": "circulation-item",
+        "version": "1.0"
       }
     ],
     "optional": [
@@ -9011,10 +9015,6 @@
         "version": "3.2"
       },
       {
-        "id": "mapping-rules-provider",
-        "version": "2.0"
-      },
-      {
         "id": "settings",
         "version": "1.0"
       },
@@ -9043,6 +9043,10 @@
       {
         "id": "instance-storage",
         "version": "11.0"
+      },
+      {
+        "id": "mapping-rules-provider",
+        "version": "2.0"
       }
     ]
   },
@@ -11702,12 +11706,8 @@
         "version": "14.6"
       },
       {
-        "id": "pieces",
-        "version": "3.0"
-      },
-      {
-        "id": "pieces",
-        "version": "3.1"
+        "id": "orders-storage.pieces",
+        "version": "5.0"
       },
       {
         "id": "user-tenants",
