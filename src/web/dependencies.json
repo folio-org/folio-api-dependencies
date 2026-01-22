@@ -3393,10 +3393,6 @@
       {
         "id": "holdings-storage",
         "version": "8.0"
-      },
-      {
-        "id": "circulation-item",
-        "version": "1.0"
       }
     ],
     "optional": [
@@ -3419,6 +3415,10 @@
       {
         "id": "allowed-service-points",
         "version": "1.2"
+      },
+      {
+        "id": "circulation-item",
+        "version": "1.0"
       }
     ]
   },
