@@ -5929,6 +5929,14 @@
       {
         "id": "search-inventory",
         "version": "1.0"
+      },
+      {
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": []
