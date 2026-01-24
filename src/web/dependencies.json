@@ -6001,7 +6001,12 @@
       }
     ],
     "requires": [],
-    "optional": []
+    "optional": [
+      {
+        "id": "organizations-storage.organizations",
+        "version": "3.3"
+      }
+    ]
   },
   "ui-finc-config": {
     "requires": [
@@ -8991,6 +8996,10 @@
       {
         "id": "authority-source-files",
         "version": "2.2"
+      },
+      {
+        "id": "authorities-config",
+        "version": "1.0"
       },
       {
         "id": "_tenant",
