@@ -125,10 +125,6 @@
         "version": "1.0"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
-      },
-      {
         "id": "permissions",
         "version": "5.7"
       },
@@ -3189,6 +3185,10 @@
         "version": "1.0"
       },
       {
+        "id": "orders.holding-detail",
+        "version": "1.0"
+      },
+      {
         "id": "orders-storage.settings",
         "version": "1.0"
       },
@@ -3223,6 +3223,10 @@
       {
         "id": "receiving",
         "version": "2.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.0"
       },
       {
         "id": "search-inventory",
@@ -5370,7 +5374,12 @@
         "version": "16.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "locale",
+        "version": "1.0"
+      }
+    ]
   },
   "mod-sender": {
     "provides": [
