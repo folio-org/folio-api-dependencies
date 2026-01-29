@@ -109,6 +109,10 @@
       {
         "name": "app-quick-marc",
         "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -138,10 +142,6 @@
       },
       {
         "name": "mod-patron-blocks",
-        "version": "latest"
-      },
-      {
-        "name": "mod-entities-links",
         "version": "latest"
       },
       {
@@ -206,14 +206,6 @@
       }
     ],
     "uiModules": [
-      {
-        "name": "folio_marc-authorities",
-        "version": "latest"
-      },
-      {
-        "name": "folio_stripes-authority-components",
-        "version": "latest"
-      },
       {
         "name": "folio_inventory",
         "version": "latest"
@@ -292,10 +284,6 @@
       },
       {
         "name": "folio_myprofile",
-        "version": "latest"
-      },
-      {
-        "name": "folio_plugin-find-authority",
         "version": "latest"
       },
       {
@@ -467,6 +455,10 @@
       {
         "name": "app-marc-storage",
         "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -495,6 +487,10 @@
       },
       {
         "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
         "version": "^1.0.0-SNAPSHOT"
       }
     ],
@@ -1145,6 +1141,10 @@
       {
         "name": "app-marc-storage",
         "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
@@ -1300,15 +1300,15 @@
     ],
     "uiModules": [
       {
-        "name": "ui-marc-authorities",
+        "name": "folio_marc-authorities",
         "version": "latest"
       },
       {
-        "name": "ui-plugin-find-authority",
+        "name": "folio_plugin-find-authority",
         "version": "latest"
       },
       {
-        "name": "stripes-authority-components",
+        "name": "folio_stripes-authority-components",
         "version": "latest"
       }
     ]
