@@ -1312,5 +1312,50 @@
         "version": "latest"
       }
     ]
+  },
+  "app-inventory": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-inventory",
+        "version": "latest"
+      },
+      {
+        "name": "mod-inventory-storage",
+        "version": "latest"
+      },
+      {
+        "name": "mod-inventory-update",
+        "version": "latest"
+      },
+      {
+        "name": "edge-inventory",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_inventory",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-create-inventory-records",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-instance",
+        "version": "latest"
+      },
+      {
+        "name": "folio_stripes-inventory-components",
+        "version": "latest"
+      }
+    ]
   }
 }

@@ -513,20 +513,12 @@
         "version": "0.1"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
-      },
-      {
         "id": "locations",
         "version": "3.1"
       },
       {
         "id": "service-points",
         "version": "3.4"
-      },
-      {
-        "id": "settings",
-        "version": "1.0"
       }
     ],
     "optional": []
@@ -766,10 +758,6 @@
       {
         "id": "patron-notice",
         "version": "1.0"
-      },
-      {
-        "id": "configuration",
-        "version": "2.0"
       },
       {
         "id": "cancellation-reason-storage",
@@ -1470,6 +1458,10 @@
         "version": "14.2"
       },
       {
+        "id": "circulation-settings",
+        "version": "1.0"
+      },
+      {
         "id": "inventory",
         "version": "10.0"
       },
@@ -1610,8 +1602,8 @@
         "version": "0.1"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
+        "id": "circulation-settings",
+        "version": "1.0"
       },
       {
         "id": "loan-storage",
@@ -1696,8 +1688,8 @@
         "version": "14.0"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
+        "id": "circulation-settings",
+        "version": "1.0"
       },
       {
         "id": "inventory",
@@ -1987,6 +1979,10 @@
       {
         "id": "configuration",
         "version": "2.0"
+      },
+      {
+        "id": "circulation-settings",
+        "version": "1.0"
       },
       {
         "id": "contributor-name-types",
@@ -10722,6 +10718,10 @@
     "requires": [
       {
         "id": "circulation-bff-requests",
+        "version": "1.0"
+      },
+      {
+        "id": "circulation-settings",
         "version": "1.0"
       },
       {
