@@ -944,7 +944,7 @@
     "provides": [
       {
         "id": "inventory",
-        "version": "14.3"
+        "version": "14.4"
       },
       {
         "id": "inventory-batch",
@@ -986,7 +986,7 @@
       },
       {
         "id": "instance-storage",
-        "version": "11.2"
+        "version": "11.3"
       },
       {
         "id": "instance-storage-batch-sync",
@@ -1128,7 +1128,7 @@
       },
       {
         "id": "instance-storage",
-        "version": "11.2"
+        "version": "11.3"
       },
       {
         "id": "instance-preceding-succeeding-titles",
