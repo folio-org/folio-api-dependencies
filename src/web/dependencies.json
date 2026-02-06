@@ -1937,40 +1937,12 @@
         "version": "1.0"
       },
       {
-        "id": "audit-inventory",
-        "version": "1.0"
-      },
-      {
         "id": "call-number-types",
         "version": "1.0"
       },
       {
         "id": "browse-inventory",
         "version": "1.0"
-      },
-      {
-        "id": "circulation",
-        "version": "9.0"
-      },
-      {
-        "id": "circulation",
-        "version": "10.0"
-      },
-      {
-        "id": "circulation",
-        "version": "11.0"
-      },
-      {
-        "id": "circulation",
-        "version": "12.0"
-      },
-      {
-        "id": "circulation",
-        "version": "13.0"
-      },
-      {
-        "id": "circulation",
-        "version": "14.0"
       },
       {
         "id": "classification-types",
@@ -2207,8 +2179,36 @@
         "version": "1.0"
       },
       {
+        "id": "audit-inventory",
+        "version": "1.0"
+      },
+      {
         "id": "audit-marc",
         "version": "1.0"
+      },
+      {
+        "id": "circulation",
+        "version": "9.0"
+      },
+      {
+        "id": "circulation",
+        "version": "10.0"
+      },
+      {
+        "id": "circulation",
+        "version": "11.0"
+      },
+      {
+        "id": "circulation",
+        "version": "12.0"
+      },
+      {
+        "id": "circulation",
+        "version": "13.0"
+      },
+      {
+        "id": "circulation",
+        "version": "14.0"
       },
       {
         "id": "consortia",
@@ -7637,6 +7637,12 @@
         "version": "2.0"
       },
       {
+        "id": "settings",
+        "version": "1.1"
+      }
+    ],
+    "optional": [
+      {
         "id": "circulation",
         "version": "9.0"
       },
@@ -7659,13 +7665,8 @@
       {
         "id": "circulation",
         "version": "14.0"
-      },
-      {
-        "id": "settings",
-        "version": "1.1"
       }
-    ],
-    "optional": []
+    ]
   },
   "ui-circulation-log": {
     "requires": [
