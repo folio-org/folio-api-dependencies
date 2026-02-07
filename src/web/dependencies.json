@@ -9247,15 +9247,7 @@
       },
       {
         "id": "inventory",
-        "version": "12.0"
-      },
-      {
-        "id": "inventory",
-        "version": "13.0"
-      },
-      {
-        "id": "inventory",
-        "version": "14.0"
+        "version": "14.4"
       },
       {
         "id": "locations",
@@ -11767,5 +11759,9 @@
         "version": "2.1"
       }
     ]
+  },
+  "ui-inventory-import": {
+    "requires": [],
+    "optional": []
   }
 }
