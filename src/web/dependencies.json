@@ -4383,8 +4383,8 @@
     ],
     "requires": [
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       }
     ],
     "optional": [
