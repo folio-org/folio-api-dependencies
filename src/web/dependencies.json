@@ -1626,10 +1626,6 @@
         "version": "1.0"
       },
       {
-        "id": "custom-fields",
-        "version": "3.1"
-      },
-      {
         "id": "inventory",
         "version": "10.0"
       },
@@ -1659,6 +1655,10 @@
       }
     ],
     "optional": [
+      {
+        "id": "custom-fields",
+        "version": "3.1"
+      },
       {
         "id": "circulation-bff-loans",
         "version": "1.2"
@@ -9452,6 +9452,10 @@
         "version": "2.0"
       },
       {
+        "id": "base-url",
+        "version": "1.0"
+      },
+      {
         "id": "locale",
         "version": "1.0"
       },
@@ -10159,6 +10163,10 @@
       {
         "id": "nature-of-content-terms",
         "version": "1.0"
+      },
+      {
+        "id": "oa",
+        "version": "3.0"
       },
       {
         "id": "orders-storage.acquisition-methods",
