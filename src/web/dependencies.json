@@ -2416,6 +2416,10 @@
         "version": "1.0"
       },
       {
+        "id": "orders-storage.batch-tracking",
+        "version": "1.0"
+      },
+      {
         "id": "_tenant",
         "version": "2.0"
       },
@@ -2547,8 +2551,8 @@
     ],
     "requires": [
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "base-url",
+        "version": "1.0"
       },
       {
         "id": "users",
@@ -4239,6 +4243,10 @@
       },
       {
         "id": "orders-storage.settings",
+        "version": "1.0"
+      },
+      {
+        "id": "orders-storage.batch-tracking",
         "version": "1.0"
       },
       {
