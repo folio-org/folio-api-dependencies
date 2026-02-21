@@ -2430,8 +2430,8 @@
     ],
     "requires": [
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       },
       {
         "id": "user-tenants",
@@ -3666,8 +3666,8 @@
         "version": "13.0"
       },
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "tenant-addresses",
+        "version": "1.0"
       },
       {
         "id": "contributor-name-types",
@@ -4082,8 +4082,8 @@
         "version": "1.0"
       },
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       },
       {
         "id": "configuration",
@@ -4890,8 +4890,8 @@
         "version": "1.0"
       },
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       },
       {
         "id": "finance-storage.ledger-rollovers",
@@ -5605,8 +5605,8 @@
     ],
     "requires": [
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       },
       {
         "id": "finance.funds",
@@ -11459,6 +11459,10 @@
       },
       {
         "id": "search-facets",
+        "version": "1.0"
+      },
+      {
+        "id": "holdings-note-types",
         "version": "1.0"
       }
     ],
