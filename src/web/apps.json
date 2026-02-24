@@ -1314,11 +1314,15 @@
     ]
   },
   "app-inventory": {
-    "platform": "complete",
+    "platform": "",
     "dependencies": [
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [

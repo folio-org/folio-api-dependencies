@@ -2701,6 +2701,10 @@
         "version": "1.0"
       },
       {
+        "id": "tenant-addresses",
+        "version": "1.0"
+      },
+      {
         "id": "users",
         "version": "15.0"
       },
@@ -3251,6 +3255,10 @@
       {
         "id": "template-engine",
         "version": "2.0"
+      },
+      {
+        "id": "tenant-addresses",
+        "version": "1.0"
       },
       {
         "id": "titles",
@@ -5897,6 +5905,10 @@
         "version": "1.0"
       },
       {
+        "id": "tenant-addresses",
+        "version": "1.0"
+      },
+      {
         "id": "users",
         "version": "15.1"
       },
@@ -6236,6 +6248,10 @@
       },
       {
         "id": "settings",
+        "version": "1.0"
+      },
+      {
+        "id": "tenant-addresses",
         "version": "1.0"
       },
       {
