@@ -986,7 +986,7 @@
       },
       {
         "id": "item-storage",
-        "version": "11.0"
+        "version": "11.2"
       },
       {
         "id": "instance-storage",
@@ -3628,8 +3628,8 @@
         "version": "1.2"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
+        "id": "tenant-addresses",
+        "version": "1.0"
       },
       {
         "id": "locations",
@@ -3859,6 +3859,10 @@
       {
         "id": "orders",
         "version": "13.0"
+      },
+      {
+        "id": "orders.holding-detail",
+        "version": "1.0"
       },
       {
         "id": "orders-storage.settings",
@@ -6265,6 +6269,10 @@
     ],
     "optional": [
       {
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
         "id": "location-units",
         "version": "2.0"
       },
@@ -8383,8 +8391,12 @@
         "version": "1.2"
       },
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
+        "id": "tenant-addresses",
+        "version": "1.0"
       }
     ],
     "optional": [
@@ -9102,6 +9114,10 @@
       {
         "id": "mapping-rules-provider",
         "version": "2.0"
+      },
+      {
+        "id": "mapping-metadata-provider",
+        "version": "1.1"
       }
     ]
   },
@@ -9815,6 +9831,10 @@
       {
         "id": "dcb_refresh_shadow_locations",
         "version": "2.0"
+      },
+      {
+        "id": "dcb.settings",
+        "version": "1.0"
       },
       {
         "id": "_tenant",
@@ -11492,6 +11512,10 @@
       },
       {
         "id": "linked-data-profile",
+        "version": "1.0"
+      },
+      {
+        "id": "linked-data-admin",
         "version": "1.0"
       },
       {
