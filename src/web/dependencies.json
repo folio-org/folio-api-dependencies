@@ -11833,7 +11833,12 @@
     ]
   },
   "ui-inventory-import": {
-    "requires": [],
+    "requires": [
+      {
+        "id": "inventory-import",
+        "version": "1.0"
+      }
+    ],
     "optional": []
   }
 }
