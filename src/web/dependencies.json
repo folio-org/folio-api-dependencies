@@ -11523,6 +11523,10 @@
         "version": "1.0"
       },
       {
+        "id": "linked-data-reindex",
+        "version": "1.0"
+      },
+      {
         "id": "linked-data-admin",
         "version": "1.0"
       },
