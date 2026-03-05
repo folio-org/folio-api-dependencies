@@ -1049,6 +1049,10 @@
         "version": "3.4"
       },
       {
+        "id": "source-storage-snapshots",
+        "version": "2.1"
+      },
+      {
         "id": "bound-with-parts-storage",
         "version": "2.0"
       }
@@ -1057,6 +1061,14 @@
       {
         "id": "mapping-metadata-provider",
         "version": "1.1"
+      },
+      {
+        "id": "source-manager-job-executions",
+        "version": "3.4"
+      },
+      {
+        "id": "source-manager-records",
+        "version": "2.1"
       },
       {
         "id": "data-import-converter-storage",
@@ -5521,10 +5533,6 @@
       {
         "id": "counter-reports",
         "version": "5.0"
-      },
-      {
-        "id": "login",
-        "version": "7.0"
       }
     ],
     "optional": [
@@ -8105,7 +8113,12 @@
         "version": "1.9"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "dashboard",
+        "version": "1.0"
+      }
+    ]
   },
   "stripes-webpack": {
     "requires": [],
