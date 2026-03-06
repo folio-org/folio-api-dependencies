@@ -4594,6 +4594,10 @@
       {
         "id": "settings",
         "version": "1.0"
+      },
+      {
+        "id": "tenant-addresses",
+        "version": "1.0"
       }
     ],
     "optional": [
