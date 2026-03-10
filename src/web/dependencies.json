@@ -1132,7 +1132,7 @@
       },
       {
         "id": "holdings-storage",
-        "version": "8.1"
+        "version": "8.2"
       },
       {
         "id": "holdings-storage-batch-sync",
@@ -11534,6 +11534,10 @@
       {
         "id": "linked-data",
         "version": "2.0"
+      },
+      {
+        "id": "linked-data-vocabularies",
+        "version": "1.0"
       },
       {
         "id": "linked-data-profile",
