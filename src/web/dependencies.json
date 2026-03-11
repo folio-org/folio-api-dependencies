@@ -9557,8 +9557,8 @@
         "version": "1.0"
       },
       {
-        "id": "configuration",
-        "version": "2.0"
+        "id": "locale",
+        "version": "1.0"
       }
     ],
     "optional": []
