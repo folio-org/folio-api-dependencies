@@ -5510,7 +5510,7 @@
     "provides": [
       {
         "id": "erm-usage-harvester",
-        "version": "2.0"
+        "version": "2.1"
       },
       {
         "id": "_tenant",
@@ -7039,6 +7039,10 @@
       {
         "id": "permissions",
         "version": "5.6"
+      },
+      {
+        "id": "base-url",
+        "version": "1.0"
       }
     ],
     "optional": [
@@ -11579,11 +11583,15 @@
       },
       {
         "id": "settings",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "authority-source-files",
         "version": "2.2"
+      },
+      {
+        "id": "base-url",
+        "version": "1.0"
       }
     ],
     "optional": []
