@@ -3746,6 +3746,10 @@
       {
         "id": "settings",
         "version": "1.0"
+      },
+      {
+        "id": "locale",
+        "version": "1.0"
       }
     ],
     "optional": []
@@ -5127,10 +5131,6 @@
       {
         "id": "source-manager-records",
         "version": "2.1"
-      },
-      {
-        "id": "source-manager-parsed-records",
-        "version": "4.0"
       },
       {
         "id": "metadata-provider-job-execution-logs",
@@ -7103,7 +7103,7 @@
     "provides": [
       {
         "id": "marc-records-editor",
-        "version": "6.0"
+        "version": "7.0"
       },
       {
         "id": "marc-specifications",
@@ -7116,8 +7116,12 @@
     ],
     "requires": [
       {
-        "id": "source-storage-source-records",
-        "version": "3.3"
+        "id": "source-storage-snapshots",
+        "version": "2.1"
+      },
+      {
+        "id": "source-storage-records",
+        "version": "3.4"
       },
       {
         "id": "specification-storage",
@@ -7130,21 +7134,13 @@
       {
         "id": "users",
         "version": "16.0"
+      },
+      {
+        "id": "user-tenants",
+        "version": "1.0"
       }
     ],
     "optional": [
-      {
-        "id": "source-manager-parsed-records",
-        "version": "4.0"
-      },
-      {
-        "id": "source-manager-job-executions",
-        "version": "3.4"
-      },
-      {
-        "id": "source-manager-records",
-        "version": "2.0"
-      },
       {
         "id": "field-protection-settings",
         "version": "1.2"
@@ -7160,6 +7156,30 @@
       {
         "id": "instance-authority-links-suggestions",
         "version": "1.2"
+      },
+      {
+        "id": "instance-preceding-succeeding-titles",
+        "version": "0.1"
+      },
+      {
+        "id": "mapping-metadata-provider",
+        "version": "1.1"
+      },
+      {
+        "id": "authority-storage",
+        "version": "2.0"
+      },
+      {
+        "id": "instance-storage",
+        "version": "11.2"
+      },
+      {
+        "id": "holdings-storage",
+        "version": "8.1"
+      },
+      {
+        "id": "authorities-config",
+        "version": "1.0"
       }
     ]
   },
@@ -7168,6 +7188,10 @@
       {
         "id": "marc-records-editor",
         "version": "6.0"
+      },
+      {
+        "id": "marc-records-editor",
+        "version": "7.0"
       },
       {
         "id": "marc-specifications",
@@ -9066,6 +9090,10 @@
       },
       {
         "id": "authority-note-types",
+        "version": "1.0"
+      },
+      {
+        "id": "authority-identifier-types",
         "version": "1.0"
       },
       {
