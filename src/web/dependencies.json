@@ -2460,6 +2460,10 @@
       {
         "id": "instance-storage",
         "version": "11.0"
+      },
+      {
+        "id": "configuration",
+        "version": "2.0"
       }
     ],
     "optional": []
@@ -3727,6 +3731,10 @@
       },
       {
         "id": "consortium-search",
+        "version": "2.0"
+      },
+      {
+        "id": "configuration",
         "version": "2.0"
       }
     ],
@@ -5319,6 +5327,10 @@
       {
         "id": "authority-source-files",
         "version": "2.2"
+      },
+      {
+        "id": "authority-identifier-types",
+        "version": "1.0"
       }
     ]
   },
@@ -5811,7 +5823,12 @@
         "version": "1.0"
       }
     ],
-    "requires": [],
+    "requires": [
+      {
+        "id": "configuration",
+        "version": "2.0"
+      }
+    ],
     "optional": []
   },
   "ui-invoice": {
@@ -8098,6 +8115,10 @@
         "version": "11.0"
       },
       {
+        "id": "authority-identifier-types",
+        "version": "1.0"
+      },
+      {
         "id": "authority-reindex",
         "version": "0.1"
       },
@@ -8745,6 +8766,14 @@
       {
         "id": "circulation",
         "version": "14.6"
+      },
+      {
+        "id": "circulation-settings",
+        "version": "1.0"
+      },
+      {
+        "id": "configuration",
+        "version": "2.0"
       },
       {
         "id": "source-storage-records",
