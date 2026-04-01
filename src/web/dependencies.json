@@ -5195,8 +5195,8 @@
         "version": "16.0"
       },
       {
-        "id": "settings",
-        "version": "1.2"
+        "id": "locale",
+        "version": "1.0"
       },
       {
         "id": "user-tenants",
@@ -11843,7 +11843,24 @@
     "optional": []
   },
   "stripes-hub": {
-    "requires": [],
+    "requires": [
+      {
+        "id": "discoveries",
+        "version": "2.1"
+      },
+      {
+        "id": "entitlements",
+        "version": "1.1"
+      },
+      {
+        "id": "login",
+        "version": "7.3"
+      },
+      {
+        "id": "users-keycloak",
+        "version": "1.0"
+      }
+    ],
     "optional": []
   },
   "mod-rtac-cache": {

@@ -1126,6 +1126,39 @@
       }
     ]
   },
+  "app-data-import": {
+    "platform": "complete",
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0"
+      }
+    ],
+    "modules": [
+      {
+        "name": "mod-data-import",
+        "version": "latest"
+      },
+      {
+        "name": "mod-source-record-manager",
+        "version": "latest"
+      },
+      {
+        "name": "mod-di-converter-storage",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_data-import",
+        "version": "latest"
+      },
+      {
+        "name": "folio_plugin-find-import-profile",
+        "version": "latest"
+      }
+    ]
+  },
   "app-serials-management": {
     "platform": "complete",
     "dependencies": [
