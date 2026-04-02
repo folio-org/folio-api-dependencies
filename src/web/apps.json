@@ -1131,7 +1131,19 @@
     "dependencies": [
       {
         "name": "app-platform-minimal",
-        "version": "^2.1.0"
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ],
     "modules": [
