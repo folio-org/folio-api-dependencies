@@ -8241,6 +8241,10 @@
         "version": "2.0"
       },
       {
+        "id": "configuration",
+        "version": "2.0"
+      },
+      {
         "id": "permissions",
         "version": "5.3"
       },
