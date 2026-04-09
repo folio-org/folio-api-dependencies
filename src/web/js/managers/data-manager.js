@@ -23,6 +23,23 @@ export const DataManager = {
     },
 
     /**
+     * Load raw dependencies JSON (module → {provides, requires, optional})
+     * @returns {Promise<Object>}
+     */
+    async loadDependenciesRaw() {
+        try {
+            const response = await fetch('dependencies.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error loading raw dependencies:', error);
+            return {};
+        }
+    },
+
+    /**
      * Load apps from JSON file
      * @returns {Promise<Object>} Apps data
      */

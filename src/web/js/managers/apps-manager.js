@@ -6,12 +6,16 @@ import { Utils } from '../core/utils.js';
  */
 export const AppsManager = {
     allApps: [],
+    /** Map<appName, Set<depName>> produced by DependencyAnalyzer */
+    removableDeps: new Map(),
 
     /**
      * Initialize apps manager
-     * @param {Object} appsData - Apps data
+     * @param {Object} appsData    - Apps data
+     * @param {Map}    removableDeps - Analysis result: which dependencies are unused
      */
-    init(appsData) {
+    init(appsData, removableDeps = new Map()) {
+        this.removableDeps = removableDeps;
         this.allApps = Object.entries(appsData).map(([repoName, data]) => ({
             repoName,
             ...data
@@ -72,16 +76,31 @@ export const AppsManager = {
             return '<div class="app-section"><h4>📦 Dependencies</h4><div class="empty-section">No dependencies</div></div>';
         }
 
-        const items = app.dependencies.map(dep => `
-            <li>
-                <code>${dep.name}</code>
-                <span class="version">${dep.version}</span>
-            </li>
-        `).join('');
+        const unusedForThisApp = this.removableDeps.get(app.repoName) ?? new Set();
+
+        const items = app.dependencies.map(dep => {
+            const isRemovable = unusedForThisApp.has(dep.name);
+            const removableBadge = isRemovable
+                ? `<span class="dep-removable-badge" title="No interface overlap detected between this app's modules and the dependency's provided APIs. This dependency may be removable.">⚠️ may be removable</span>`
+                : '';
+            const liClass = isRemovable ? ' class="dep-removable"' : '';
+            return `
+                <li${liClass}>
+                    <code>${dep.name}</code>
+                    <span class="version">${dep.version}</span>
+                    ${removableBadge}
+                </li>
+            `;
+        }).join('');
+
+        const removableCount = unusedForThisApp.size;
+        const warningBadge = removableCount > 0
+            ? `<span class="section-removable-badge" title="${removableCount} dependenc${removableCount === 1 ? 'y' : 'ies'} with no detected interface usage">${removableCount} possibly unused</span>`
+            : '';
 
         return `
             <div class="app-section">
-                <h4>📦 Dependencies (${app.dependencies.length})</h4>
+                <h4>📦 Dependencies (${app.dependencies.length}) ${warningBadge}</h4>
                 <ul class="app-list dependencies">${items}</ul>
             </div>
         `;
