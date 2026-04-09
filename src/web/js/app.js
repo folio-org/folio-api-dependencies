@@ -11,6 +11,7 @@ import { ApiManager, ApiUsageTableManager } from './managers/api-manager.js';
 import { AppsManager } from './managers/apps-manager.js';
 import { AppDependenciesGraphManager } from './managers/graph-manager.js';
 import { ModuleGraphManager, addGraphControls } from './managers/module-consumers-graph.js';
+import { DependencyAnalyzer } from './managers/dependency-analyzer.js';
 
 /**
  * Main application controller
@@ -23,11 +24,16 @@ export const App = {
             const rows = await DataManager.loadDependencies();
             AppState.allRows = rows;
 
-            const appsData = await DataManager.loadApps();
+            const [appsData, dependenciesRaw] = await Promise.all([
+                DataManager.loadApps(),
+                DataManager.loadDependenciesRaw(),
+            ]);
             AppState.appsData = appsData;
 
             DataManager.buildModuleToAppsMap(appsData);
             AppState.globalApiIndex = DataManager.buildApiIndex(rows);
+
+            const removableDeps = DependencyAnalyzer.analyze(appsData, dependenciesRaw);
 
             this.initTable();
             this.initTableSearch();
@@ -36,7 +42,7 @@ export const App = {
             this.initTabs();
             this.initModuleConsumersGraph();
 
-            AppsManager.init(appsData);
+            AppsManager.init(appsData, removableDeps);
             this.initTableExport();
             this.initAppDependenciesGraph();
 
