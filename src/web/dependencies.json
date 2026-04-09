@@ -7363,20 +7363,6 @@
     ],
     "optional": []
   },
-  "edge-lti-courses": {
-    "provides": [],
-    "requires": [
-      {
-        "id": "course-reserves-storage",
-        "version": "0.3"
-      },
-      {
-        "id": "configuration",
-        "version": "2.0"
-      }
-    ],
-    "optional": []
-  },
   "ui-plugin-find-eresource": {
     "requires": [
       {
@@ -10139,6 +10125,10 @@
         "version": "2.2"
       },
       {
+        "id": "automated-patron-blocks",
+        "version": "0.1"
+      },
+      {
         "id": "alternative-title-types",
         "version": "1.0"
       },
@@ -10389,6 +10379,10 @@
       {
         "id": "user-summary",
         "version": "0.1"
+      },
+      {
+        "id": "users-bl",
+        "version": "6.1"
       },
       {
         "id": "voucher-storage.voucher-lines",
