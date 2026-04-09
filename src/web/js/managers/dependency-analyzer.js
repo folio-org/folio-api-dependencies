@@ -1,9 +1,9 @@
 /**
  * Analyzes app dependencies to identify ones that may be unnecessary.
  *
- * A dependency is considered potentially removable when none of the modules
- * in the dependent app (backend, edge, and UI) require (or optionally require)
- * any interface that is provided by the modules in the dependency app.
+ * A dependency is considered potentially removable when:
+ * - none of the app's modules consume any interface provided by the dependency, OR
+ * - the only consuming interfaces are declared as "optional" (not hard requires)
  */
 export const DependencyAnalyzer = {
     /**
@@ -16,13 +16,15 @@ export const DependencyAnalyzer = {
      */
     analyze(appsData, dependenciesRaw) {
         const appProvidedApis = this._buildAppProvidedApis(appsData, dependenciesRaw);
-        const appRequiredApis = this._buildAppRequiredApis(appsData, dependenciesRaw);
+        const appHardRequiredApis = this._buildAppApiSet(appsData, dependenciesRaw, 'requires');
+        const appOptionalApis = this._buildAppApiSet(appsData, dependenciesRaw, 'optional');
 
         const removable = new Map();
 
         for (const [appName, appData] of Object.entries(appsData)) {
             const unusedDeps = new Set();
-            const thisAppRequired = appRequiredApis.get(appName) ?? new Set();
+            const hardRequired = appHardRequiredApis.get(appName) ?? new Set();
+            const optional = appOptionalApis.get(appName) ?? new Set();
 
             for (const dep of (appData.dependencies ?? [])) {
                 const depName = dep.name;
@@ -32,8 +34,11 @@ export const DependencyAnalyzer = {
                 // some interfaces — if it provides nothing we cannot conclude anything.
                 if (depProvided.size === 0) continue;
 
-                const hasOverlap = [...depProvided].some(api => thisAppRequired.has(api));
-                if (!hasOverlap) {
+                const hasHardOverlap = [...depProvided].some(api => hardRequired.has(api));
+
+                // Flag as removable if there's no hard-require overlap
+                // (no overlap at all, or only optional overlap → dependency is not strictly needed)
+                if (!hasHardOverlap) {
                     unusedDeps.add(depName);
                 }
             }
@@ -61,13 +66,12 @@ export const DependencyAnalyzer = {
     },
 
     /**
-     * Collect interface IDs from a module entry in dependenciesRaw, accumulating
-     * either "provides" or "requires"+"optional" into the given Set.
+     * Collect interface IDs for a given module name and dependency side.
      *
-     * @param {Object}   dependenciesRaw
-     * @param {string}   moduleName  - key to look up (after any name transformation)
-     * @param {Set}      into        - target set
-     * @param {'provides'|'requires+optional'} side
+     * @param {Object}              dependenciesRaw
+     * @param {string}              moduleName
+     * @param {Set}                 into
+     * @param {'provides'|'requires'|'optional'} side
      * @returns {boolean} whether the module was found
      * @private
      */
@@ -75,12 +79,7 @@ export const DependencyAnalyzer = {
         const modData = dependenciesRaw[moduleName];
         if (!modData) return false;
 
-        if (side === 'provides') {
-            for (const p of (modData.provides ?? [])) into.add(p.id);
-        } else {
-            for (const r of (modData.requires ?? [])) into.add(r.id);
-            for (const o of (modData.optional ?? [])) into.add(o.id);
-        }
+        for (const entry of (modData[side] ?? [])) into.add(entry.id);
         return true;
     },
 
@@ -95,12 +94,10 @@ export const DependencyAnalyzer = {
         for (const [appName, appData] of Object.entries(appsData)) {
             const apis = new Set();
 
-            // Backend and edge modules — names are used as-is
             for (const mod of (appData.modules ?? [])) {
                 this._collectApis(dependenciesRaw, mod.name, apis, 'provides');
             }
 
-            // UI modules — try all candidate name variants
             for (const mod of (appData.uiModules ?? [])) {
                 for (const candidate of this._uiModuleCandidates(mod.name)) {
                     if (this._collectApis(dependenciesRaw, candidate, apis, 'provides')) break;
@@ -114,25 +111,28 @@ export const DependencyAnalyzer = {
     },
 
     /**
-     * Build a map of appName → Set of interface IDs required (or optionally required)
-     * by that app's modules (backend/edge modules + UI modules).
+     * Build a map of appName → Set of interface IDs for a specific dependency side
+     * ('requires' or 'optional') across backend/edge and UI modules.
+     *
+     * @param {Object} appsData
+     * @param {Object} dependenciesRaw
+     * @param {'requires'|'optional'} side
+     * @returns {Map<string, Set<string>>}
      * @private
      */
-    _buildAppRequiredApis(appsData, dependenciesRaw) {
+    _buildAppApiSet(appsData, dependenciesRaw, side) {
         const map = new Map();
 
         for (const [appName, appData] of Object.entries(appsData)) {
             const apis = new Set();
 
-            // Backend and edge modules — names are used as-is
             for (const mod of (appData.modules ?? [])) {
-                this._collectApis(dependenciesRaw, mod.name, apis, 'requires+optional');
+                this._collectApis(dependenciesRaw, mod.name, apis, side);
             }
 
-            // UI modules — try all candidate name variants
             for (const mod of (appData.uiModules ?? [])) {
                 for (const candidate of this._uiModuleCandidates(mod.name)) {
-                    if (this._collectApis(dependenciesRaw, candidate, apis, 'requires+optional')) break;
+                    if (this._collectApis(dependenciesRaw, candidate, apis, side)) break;
                 }
             }
 
