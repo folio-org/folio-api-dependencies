@@ -8339,14 +8339,6 @@
         "version": "1.1"
       },
       {
-        "id": "instance-authority-links-statistics",
-        "version": "2.1"
-      },
-      {
-        "id": "instance-authority-links-statistics",
-        "version": "3.0"
-      },
-      {
         "id": "holdings-note-types",
         "version": "1.0"
       },
@@ -8523,6 +8515,14 @@
       {
         "id": "eholdings",
         "version": "4.0"
+      },
+      {
+        "id": "instance-authority-links-statistics",
+        "version": "2.1"
+      },
+      {
+        "id": "instance-authority-links-statistics",
+        "version": "3.0"
       }
     ]
   },
@@ -9113,6 +9113,10 @@
       },
       {
         "id": "authority-identifier-types",
+        "version": "1.0"
+      },
+      {
+        "id": "authority-heading-types",
         "version": "1.0"
       },
       {
