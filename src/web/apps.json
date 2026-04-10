@@ -111,10 +111,6 @@
         "version": "^1.0.0-SNAPSHOT"
       },
       {
-        "name": "app-authority-records",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }

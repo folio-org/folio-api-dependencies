@@ -6815,6 +6815,10 @@
       {
         "id": "ncip",
         "version": "1.0"
+      },
+      {
+        "id": "_tenant",
+        "version": "1.0"
       }
     ],
     "requires": [
@@ -6881,6 +6885,10 @@
       {
         "id": "circulation",
         "version": "14.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": []
