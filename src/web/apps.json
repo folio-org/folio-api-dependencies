@@ -1259,7 +1259,12 @@
   },
   "app-marc-storage": {
     "platform": "complete",
-    "dependencies": [],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ],
     "modules": [
       {
         "name": "mod-source-record-storage",
