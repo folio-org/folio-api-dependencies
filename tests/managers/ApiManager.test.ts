@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { ApiManager } from '../../src/managers/ApiManager'
 import { AppStore } from '../../src/store/AppStore'
 import type { DependencyRow, ApiIndex } from '../../src/types/index'
@@ -34,5 +34,14 @@ describe('ApiManager', () => {
   it('renders not found message for unknown api', () => {
     manager.selectApi('unknown-api')
     expect(container.innerHTML).toContain('not found')
+  })
+
+  it('export CSV button triggers download without error', () => {
+    vi.stubGlobal('URL', { createObjectURL: vi.fn(() => 'blob:test'), revokeObjectURL: vi.fn() })
+    manager.selectApi('foo-api')
+    const btn = container.querySelector('#export-api-csv') as HTMLButtonElement
+    expect(btn).toBeTruthy()
+    btn.click()
+    vi.unstubAllGlobals()
   })
 })
