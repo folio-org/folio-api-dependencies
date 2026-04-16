@@ -92,7 +92,7 @@ async function init(): Promise<void> {
   // App dependencies graph (lazy init on tab click)
   const appGraphManager = new AppDependenciesGraphManager()
   let appGraphInitialized = false
-  document.querySelector('[data-tab="app-deps"]')?.addEventListener('click', () => {
+  document.querySelector('[data-tab="app-dependencies"]')?.addEventListener('click', () => {
     if (!appGraphInitialized) {
       appGraphInitialized = true
       setTimeout(() => appGraphManager.init(store.getApps()), 100)
@@ -103,10 +103,10 @@ async function init(): Promise<void> {
   document.querySelectorAll<HTMLElement>('.tab-button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'))
-      document.querySelectorAll<HTMLElement>('[id^="view-"]').forEach(v => { v.style.display = 'none' })
+      document.querySelectorAll('.tab-view').forEach(v => v.classList.remove('active'))
       btn.classList.add('active')
       const view = document.getElementById(`view-${btn.dataset.tab}`)
-      if (view) view.style.display = ''
+      if (view) view.classList.add('active')
     })
   })
 
