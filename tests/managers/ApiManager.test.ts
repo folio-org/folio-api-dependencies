@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { ApiManager } from '../../src/managers/ApiManager'
 import { AppStore } from '../../src/store/AppStore'
 import type { DependencyRow, ApiIndex } from '../../src/types/index'
@@ -21,7 +21,23 @@ describe('ApiManager', () => {
     ])
     store.setApiIndex(index)
     container = document.createElement('div')
+
+    // Mock URL constructor for updateUrl
+    const FakeURL = class {
+      searchParams = new URLSearchParams()
+      constructor(_href: string) {}
+      toString() { return 'http://localhost/' }
+    }
+    vi.stubGlobal('URL', FakeURL)
+
+    // Mock history.replaceState
+    vi.stubGlobal('history', { replaceState: vi.fn() })
+
     manager = new ApiManager(store, container)
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
   })
 
   it('renders provider, consumer, and optional sections for a known api', () => {
@@ -33,15 +49,13 @@ describe('ApiManager', () => {
 
   it('renders not found message for unknown api', () => {
     manager.selectApi('unknown-api')
-    expect(container.innerHTML).toContain('not found')
+    expect(container.innerHTML).toContain('No data for API')
   })
 
   it('export CSV button triggers download without error', () => {
-    vi.stubGlobal('URL', { createObjectURL: vi.fn(() => 'blob:test'), revokeObjectURL: vi.fn() })
     manager.selectApi('foo-api')
     const btn = container.querySelector('#export-api-csv') as HTMLButtonElement
     expect(btn).toBeTruthy()
     btn.click()
-    vi.unstubAllGlobals()
   })
 })

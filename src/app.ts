@@ -3,7 +3,7 @@ import { AppStore } from './store/AppStore'
 import { DataManager } from './managers/DataManager'
 import { DependencyAnalyzer } from './core/dependency-analyzer'
 import { TableManager } from './managers/TableManager'
-import { ApiManager } from './managers/ApiManager'
+import { ApiManager, ApiUsageTableManager } from './managers/ApiManager'
 import { AppsManager } from './managers/AppsManager'
 import { AppDependenciesGraphManager } from './managers/GraphManager'
 import { ModuleConsumersGraphManager } from './managers/ModuleConsumersGraphManager'
@@ -64,6 +64,11 @@ async function init(): Promise<void> {
   apiDropdown.init()
   ;(window as any).selectApi = (api: string) => apiManager.selectApi(api)
 
+  // API Usage Count table
+  const apiUsageCountEl = document.getElementById('api-usage-count') as HTMLElement
+  const apiUsageTable = new ApiUsageTableManager(apiUsageCountEl)
+  apiUsageTable.render(store.getRows())
+
   // Apps view
   const appsContainer = document.getElementById('apps-container') as HTMLElement
   const appsManager = new AppsManager(appsContainer)
@@ -81,13 +86,6 @@ async function init(): Promise<void> {
   const moduleGraphManager = new ModuleConsumersGraphManager(store)
   moduleGraphManager.init(moduleInput, moduleDropdownEl)
   moduleGraphManager.initGraph(moduleGraphContainer)
-  document.getElementById('reset-graph')?.addEventListener('click', () => moduleGraphManager.clearGraph())
-  document.getElementById('export-graph')?.addEventListener('click', () => moduleGraphManager.exportGraph())
-  document.getElementById('deselect-mode')?.addEventListener('click', () => {
-    moduleGraphManager.toggleDeselectMode()
-    const btn = document.getElementById('deselect-mode') as HTMLElement
-    btn.style.backgroundColor = moduleGraphManager.isDeselectMode() ? '#e74c3c' : ''
-  })
 
   // App dependencies graph (lazy init on tab click)
   const appGraphManager = new AppDependenciesGraphManager()
