@@ -2464,6 +2464,10 @@
       {
         "id": "configuration",
         "version": "2.0"
+      },
+      {
+        "id": "finance.fiscal-years",
+        "version": "3.0"
       }
     ],
     "optional": []
@@ -6815,6 +6819,10 @@
       {
         "id": "ncip",
         "version": "1.0"
+      },
+      {
+        "id": "_tenant",
+        "version": "2.0"
       }
     ],
     "requires": [
@@ -6881,6 +6889,10 @@
       {
         "id": "circulation",
         "version": "14.0"
+      },
+      {
+        "id": "settings",
+        "version": "1.2"
       }
     ],
     "optional": []
@@ -7998,7 +8010,7 @@
     "provides": [
       {
         "id": "indices",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "search-inventory",
@@ -9870,8 +9882,16 @@
         "version": "2.0"
       },
       {
+        "id": "fqm-query",
+        "version": "3.0"
+      },
+      {
         "id": "entity-types",
         "version": "2.0"
+      },
+      {
+        "id": "entity-types",
+        "version": "3.0"
       }
     ],
     "optional": []
@@ -10006,7 +10026,7 @@
       },
       {
         "id": "login",
-        "version": "7.1"
+        "version": "7.3"
       }
     ],
     "optional": []
@@ -10054,11 +10074,11 @@
       },
       {
         "id": "entity-types",
-        "version": "2.1"
+        "version": "3.0"
       },
       {
         "id": "fqm-query",
-        "version": "2.1"
+        "version": "3.0"
       },
       {
         "id": "_timer",
