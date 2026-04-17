@@ -3007,23 +3007,11 @@
       },
       {
         "id": "loan-storage",
-        "version": "7.1"
-      },
-      {
-        "id": "loan-storage",
-        "version": "7.3"
+        "version": "7.4"
       },
       {
         "id": "circulation",
-        "version": "14.2"
-      },
-      {
-        "id": "circulation",
-        "version": "14.6"
-      },
-      {
-        "id": "pieces",
-        "version": "3.0"
+        "version": "14.7"
       },
       {
         "id": "pieces",
@@ -3036,10 +3024,6 @@
       {
         "id": "search-facets",
         "version": "1.0"
-      },
-      {
-        "id": "settings",
-        "version": "1.1"
       },
       {
         "id": "settings",
@@ -5595,10 +5579,6 @@
       {
         "id": "settings",
         "version": "1.2"
-      },
-      {
-        "id": "okapi",
-        "version": "1.9"
       }
     ]
   },
@@ -10166,11 +10146,11 @@
       },
       {
         "id": "entity-types",
-        "version": "3.0"
+        "version": "2.1"
       },
       {
         "id": "fqm-query",
-        "version": "3.0"
+        "version": "2.1"
       },
       {
         "id": "_timer",
@@ -11365,15 +11345,11 @@
     "requires": [
       {
         "id": "login",
-        "version": "7.1"
+        "version": "7.3"
       },
       {
         "id": "erm",
-        "version": "6.1"
-      },
-      {
-        "id": "erm",
-        "version": "7.1"
+        "version": "7.3"
       }
     ],
     "optional": []
@@ -11649,10 +11625,6 @@
     "requires": [
       {
         "id": "users",
-        "version": "16.0"
-      },
-      {
-        "id": "users",
         "version": "16.4"
       }
     ],
@@ -11663,7 +11635,7 @@
     "requires": [
       {
         "id": "inventory",
-        "version": "14.3"
+        "version": "14.4"
       },
       {
         "id": "login",
@@ -11691,7 +11663,7 @@
       },
       {
         "id": "holdings-storage",
-        "version": "8.1"
+        "version": "8.2"
       },
       {
         "id": "instance-types",
