@@ -2464,6 +2464,10 @@
       {
         "id": "configuration",
         "version": "2.0"
+      },
+      {
+        "id": "finance.fiscal-years",
+        "version": "3.0"
       }
     ],
     "optional": []
@@ -9878,8 +9882,16 @@
         "version": "2.0"
       },
       {
+        "id": "fqm-query",
+        "version": "3.0"
+      },
+      {
         "id": "entity-types",
         "version": "2.0"
+      },
+      {
+        "id": "entity-types",
+        "version": "3.0"
       }
     ],
     "optional": []
@@ -10014,7 +10026,7 @@
       },
       {
         "id": "login",
-        "version": "7.1"
+        "version": "7.3"
       }
     ],
     "optional": []
@@ -10062,11 +10074,11 @@
       },
       {
         "id": "entity-types",
-        "version": "2.1"
+        "version": "3.0"
       },
       {
         "id": "fqm-query",
-        "version": "2.1"
+        "version": "3.0"
       },
       {
         "id": "_timer",
