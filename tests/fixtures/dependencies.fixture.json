@@ -1,0 +1,27 @@
+{
+  "mod-inventory": {
+    "provides": [{ "id": "inventory", "version": "12.0" }],
+    "requires": [{ "id": "holdings-storage", "version": "7.0" }],
+    "optional": []
+  },
+  "mod-holdings": {
+    "provides": [{ "id": "holdings-storage", "version": "7.2" }],
+    "requires": [],
+    "optional": []
+  },
+  "mod-users": {
+    "provides": [{ "id": "users", "version": "16.0" }],
+    "requires": [],
+    "optional": []
+  },
+  "mod-circulation": {
+    "provides": [{ "id": "circulation", "version": "14.0" }],
+    "requires": [{ "id": "inventory", "version": "12.0" }, { "id": "users", "version": "16.0" }],
+    "optional": []
+  },
+  "mod-notes": {
+    "provides": [{ "id": "notes", "version": "3.0" }],
+    "requires": [],
+    "optional": [{ "id": "users", "version": "16.0" }]
+  }
+}

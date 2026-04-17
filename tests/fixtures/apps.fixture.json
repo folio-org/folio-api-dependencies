@@ -1,0 +1,20 @@
+{
+  "app-inventory": {
+    "platform": "base",
+    "modules": [{ "name": "mod-inventory", "version": "1.0.0" }, { "name": "mod-holdings", "version": "1.0.0" }],
+    "uiModules": [],
+    "dependencies": [{ "name": "app-users", "version": "1.0.0" }]
+  },
+  "app-users": {
+    "platform": "base",
+    "modules": [{ "name": "mod-users", "version": "1.0.0" }],
+    "uiModules": [],
+    "dependencies": []
+  },
+  "app-notes": {
+    "platform": "base",
+    "modules": [{ "name": "mod-notes", "version": "1.0.0" }],
+    "uiModules": [],
+    "dependencies": [{ "name": "app-users", "version": "1.0.0" }]
+  }
+}
