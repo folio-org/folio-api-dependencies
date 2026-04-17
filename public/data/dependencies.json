@@ -57,10 +57,12 @@
     ]
   },
   "stripes-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-core": {
+    "provides": [],
     "requires": [
       {
         "id": "users-bl",
@@ -111,10 +113,12 @@
     ]
   },
   "stripes-connect": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-users": {
+    "provides": [],
     "requires": [
       {
         "id": "users",
@@ -265,6 +269,7 @@
     ]
   },
   "stripes-sample-platform": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -1349,10 +1354,12 @@
     ]
   },
   "stripes-form": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-developer": {
+    "provides": [],
     "requires": [
       {
         "id": "settings",
@@ -1418,10 +1425,12 @@
     "optional": []
   },
   "ui-plugin-find-user": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-eholdings": {
+    "provides": [],
     "requires": [
       {
         "id": "eholdings",
@@ -1464,6 +1473,7 @@
     ]
   },
   "ui-requests": {
+    "provides": [],
     "requires": [
       {
         "id": "cancellation-reason-storage",
@@ -1526,6 +1536,7 @@
     ]
   },
   "stripes-react-hotkeys": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -1588,6 +1599,7 @@
     "optional": []
   },
   "ui-checkout": {
+    "provides": [],
     "requires": [
       {
         "id": "circulation",
@@ -1686,6 +1698,7 @@
     ]
   },
   "ui-checkin": {
+    "provides": [],
     "requires": [
       {
         "id": "circulation",
@@ -1819,6 +1832,7 @@
     "optional": []
   },
   "ui-circulation": {
+    "provides": [],
     "requires": [
       {
         "id": "circulation",
@@ -1909,6 +1923,7 @@
     ]
   },
   "stripes-smart-components": {
+    "provides": [],
     "requires": [
       {
         "id": "notes",
@@ -1955,6 +1970,7 @@
     ]
   },
   "ui-inventory": {
+    "provides": [],
     "requires": [
       {
         "id": "alternative-title-types",
@@ -2313,6 +2329,7 @@
     ]
   },
   "ui-calendar": {
+    "provides": [],
     "requires": [
       {
         "id": "calendar",
@@ -2330,6 +2347,7 @@
     "optional": []
   },
   "stripes-cli": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -2591,6 +2609,7 @@
     ]
   },
   "ui-finance": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisitions-units",
@@ -2924,6 +2943,7 @@
     ]
   },
   "ui-agreements": {
+    "provides": [],
     "requires": [
       {
         "id": "erm",
@@ -3029,6 +3049,7 @@
     "optional": []
   },
   "stripes-util": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -3047,6 +3068,7 @@
     "optional": []
   },
   "ui-orders": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisition-order-events",
@@ -3543,6 +3565,7 @@
     "optional": []
   },
   "ui-erm-usage": {
+    "provides": [],
     "requires": [
       {
         "id": "aggregator-settings",
@@ -3745,6 +3768,7 @@
     "optional": []
   },
   "ui-tags": {
+    "provides": [],
     "requires": [
       {
         "id": "tags",
@@ -3754,6 +3778,7 @@
     "optional": []
   },
   "ui-myprofile": {
+    "provides": [],
     "requires": [
       {
         "id": "settings",
@@ -3767,6 +3792,7 @@
     "optional": []
   },
   "ui-receiving": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisition-piece-events",
@@ -3988,6 +4014,7 @@
     ]
   },
   "ui-licenses": {
+    "provides": [],
     "requires": [
       {
         "id": "licenses",
@@ -4398,6 +4425,7 @@
     ]
   },
   "ui-plugin-find-instance": {
+    "provides": [],
     "requires": [
       {
         "id": "contributor-types",
@@ -4423,6 +4451,7 @@
     "optional": []
   },
   "ui-servicepoints": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -4451,6 +4480,7 @@
     ]
   },
   "stripes-testing": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -4598,6 +4628,7 @@
     ]
   },
   "ui-data-import": {
+    "provides": [],
     "requires": [
       {
         "id": "data-import",
@@ -5469,6 +5500,7 @@
     "optional": []
   },
   "ui-plugin-find-license": {
+    "provides": [],
     "requires": [
       {
         "id": "licenses",
@@ -5571,6 +5603,7 @@
     ]
   },
   "ui-plugin-find-agreement": {
+    "provides": [],
     "requires": [
       {
         "id": "erm",
@@ -5580,6 +5613,7 @@
     "optional": []
   },
   "ui-plugin-find-erm-usage-data-provider": {
+    "provides": [],
     "requires": [
       {
         "id": "aggregator-settings",
@@ -5836,6 +5870,7 @@
     "optional": []
   },
   "ui-invoice": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisition-methods",
@@ -5969,10 +6004,12 @@
     "optional": []
   },
   "stripes-erm-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-notes": {
+    "provides": [],
     "requires": [
       {
         "id": "notes",
@@ -6083,6 +6120,7 @@
     ]
   },
   "ui-finc-config": {
+    "provides": [],
     "requires": [
       {
         "id": "finc-config-metadata-sources",
@@ -6174,6 +6212,7 @@
     "optional": []
   },
   "ui-organizations": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisition-methods",
@@ -6248,6 +6287,7 @@
     ]
   },
   "ui-plugin-find-organization": {
+    "provides": [],
     "requires": [
       {
         "id": "configuration",
@@ -6265,10 +6305,12 @@
     "optional": []
   },
   "ui-app-template": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-plugin-find-contact": {
+    "provides": [],
     "requires": [
       {
         "id": "organizations-storage.categories",
@@ -6282,6 +6324,7 @@
     "optional": []
   },
   "ui-tenant-settings": {
+    "provides": [],
     "requires": [
       {
         "id": "configuration",
@@ -6344,6 +6387,7 @@
     ]
   },
   "ui-plugin-find-interface": {
+    "provides": [],
     "requires": [
       {
         "id": "organizations-storage.interfaces",
@@ -6353,6 +6397,7 @@
     "optional": []
   },
   "ui-plugin-find-po-line": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisition-methods",
@@ -6458,6 +6503,7 @@
     "optional": []
   },
   "ui-finc-select": {
+    "provides": [],
     "requires": [
       {
         "id": "finc-select-metadata-sources",
@@ -6491,10 +6537,12 @@
     "optional": []
   },
   "stripes-acq-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-local-kb-admin": {
+    "provides": [],
     "requires": [
       {
         "id": "erm",
@@ -6559,6 +6607,7 @@
     "optional": []
   },
   "ui-acquisition-units": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisitions-units",
@@ -6576,10 +6625,12 @@
     "optional": []
   },
   "stripes-final-form": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-courses": {
+    "provides": [],
     "requires": [
       {
         "id": "course-reserves-storage",
@@ -6776,6 +6827,7 @@
     "optional": []
   },
   "ui-plugin-find-import-profile": {
+    "provides": [],
     "requires": [
       {
         "id": "data-import",
@@ -7098,6 +7150,7 @@
     ]
   },
   "ui-data-export": {
+    "provides": [],
     "requires": [
       {
         "id": "data-export",
@@ -7107,10 +7160,12 @@
     "optional": []
   },
   "stripes-data-transfer-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-plugin-find-finc-metadata-source": {
+    "provides": [],
     "requires": [
       {
         "id": "finc-config-metadata-sources",
@@ -7120,6 +7175,7 @@
     "optional": []
   },
   "ui-plugin-find-finc-metadata-collection": {
+    "provides": [],
     "requires": [
       {
         "id": "finc-config-metadata-collections",
@@ -7213,6 +7269,7 @@
     ]
   },
   "ui-quick-marc": {
+    "provides": [],
     "requires": [
       {
         "id": "marc-records-editor",
@@ -7247,6 +7304,7 @@
     ]
   },
   "ui-oai-pmh": {
+    "provides": [],
     "requires": [
       {
         "id": "oai-pmh",
@@ -7291,6 +7349,7 @@
     "optional": []
   },
   "ui-ldp": {
+    "provides": [],
     "requires": [
       {
         "id": "ldp-query",
@@ -7363,6 +7422,7 @@
     "optional": []
   },
   "ui-plugin-find-package-title": {
+    "provides": [],
     "requires": [
       {
         "id": "eholdings",
@@ -7376,6 +7436,7 @@
     "optional": []
   },
   "ui-plugin-find-eresource": {
+    "provides": [],
     "requires": [
       {
         "id": "erm",
@@ -7385,6 +7446,7 @@
     "optional": []
   },
   "ui-erm-comparisons": {
+    "provides": [],
     "requires": [
       {
         "id": "erm",
@@ -7538,10 +7600,12 @@
     ]
   },
   "stripes-template-editor": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-plugin-create-inventory-records": {
+    "provides": [],
     "requires": [
       {
         "id": "inventory",
@@ -7768,6 +7832,7 @@
     ]
   },
   "ui-circulation-log": {
+    "provides": [],
     "requires": [
       {
         "id": "service-points",
@@ -7790,6 +7855,7 @@
     ]
   },
   "ui-remote-storage": {
+    "provides": [],
     "requires": [
       {
         "id": "locations",
@@ -8139,6 +8205,7 @@
     ]
   },
   "ui-dashboard": {
+    "provides": [],
     "requires": [
       {
         "id": "servint",
@@ -8176,6 +8243,7 @@
     ]
   },
   "stripes-webpack": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -8562,6 +8630,7 @@
     "optional": []
   },
   "ui-plugin-bursar-export": {
+    "provides": [],
     "requires": [
       {
         "id": "users",
@@ -8607,6 +8676,7 @@
     "optional": []
   },
   "ui-export-manager": {
+    "provides": [],
     "requires": [
       {
         "id": "configuration",
@@ -8663,6 +8733,7 @@
     "optional": []
   },
   "ui-inn-reach": {
+    "provides": [],
     "requires": [
       {
         "id": "inn-reach",
@@ -8789,6 +8860,7 @@
     "optional": []
   },
   "ui-plugin-eusage-reports": {
+    "provides": [],
     "requires": [
       {
         "id": "eusage-reports",
@@ -8865,6 +8937,7 @@
     "optional": []
   },
   "ui-marc-authorities": {
+    "provides": [],
     "requires": [
       {
         "id": "search-authorities",
@@ -8917,6 +8990,7 @@
     "optional": []
   },
   "ui-remote-sync": {
+    "provides": [],
     "requires": [
       {
         "id": "remote-sync",
@@ -8945,6 +9019,7 @@
     ]
   },
   "ui-oa": {
+    "provides": [],
     "requires": [
       {
         "id": "oa",
@@ -8983,10 +9058,12 @@
     ]
   },
   "ui-handler-stripes-registry": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-bulk-edit": {
+    "provides": [],
     "requires": [
       {
         "id": "bulk-operations",
@@ -9008,6 +9085,7 @@
     "optional": []
   },
   "ui-idm-connect": {
+    "provides": [],
     "requires": [
       {
         "id": "idm-connect",
@@ -9039,10 +9117,12 @@
     "optional": []
   },
   "ui-plugin-find-fund": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-service-interaction": {
+    "provides": [],
     "requires": [
       {
         "id": "servint",
@@ -9052,6 +9132,7 @@
     "optional": []
   },
   "ui-gobi-settings": {
+    "provides": [],
     "requires": [
       {
         "id": "custom-mapping",
@@ -9069,10 +9150,12 @@
     "optional": []
   },
   "ui-plugin-find-authority": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-authority-components": {
+    "provides": [],
     "requires": [
       {
         "id": "search-authorities",
@@ -9210,6 +9293,7 @@
     ]
   },
   "ui-serials-management": {
+    "provides": [],
     "requires": [
       {
         "id": "serials-management",
@@ -9326,10 +9410,12 @@
     ]
   },
   "stripes-erm-testing": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-ui": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -9614,6 +9700,7 @@
     ]
   },
   "ui-plugin-query-builder": {
+    "provides": [],
     "requires": [
       {
         "id": "fqm-query",
@@ -9670,6 +9757,7 @@
     "optional": []
   },
   "ui-consortia-settings": {
+    "provides": [],
     "requires": [
       {
         "id": "consortia",
@@ -9820,14 +9908,17 @@
     ]
   },
   "stripes-types": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-shared-context": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-inventory-components": {
+    "provides": [],
     "requires": [
       {
         "id": "instance-date-types",
@@ -9868,6 +9959,7 @@
     "optional": []
   },
   "ui-lists": {
+    "provides": [],
     "requires": [
       {
         "id": "lists",
@@ -10445,6 +10537,7 @@
     "optional": []
   },
   "stripes-marc-components": {
+    "provides": [],
     "requires": [],
     "optional": [
       {
@@ -10542,6 +10635,7 @@
     "optional": []
   },
   "ui-authorization-roles": {
+    "provides": [],
     "requires": [
       {
         "id": "capabilities",
@@ -10575,10 +10669,12 @@
     "optional": []
   },
   "ui-plugin-select-application": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-authorization-policies": {
+    "provides": [],
     "requires": [
       {
         "id": "policies",
@@ -10767,6 +10863,7 @@
     ]
   },
   "ui-workflow": {
+    "provides": [],
     "requires": [
       {
         "id": "workflow-actions",
@@ -10900,6 +10997,7 @@
     ]
   },
   "ui-requests-mediated": {
+    "provides": [],
     "requires": [
       {
         "id": "circulation-bff-requests",
@@ -11308,6 +11406,7 @@
     "optional": []
   },
   "ui-reading-room": {
+    "provides": [],
     "requires": [
       {
         "id": "users",
@@ -11355,6 +11454,7 @@
     "optional": []
   },
   "stripes-authorization-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -11696,10 +11796,12 @@
     "optional": []
   },
   "ui-linked-data": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "ui-ld-folio-wrapper": {
+    "provides": [],
     "requires": [
       {
         "id": "authority-source-files",
@@ -11737,6 +11839,7 @@
     "optional": []
   },
   "ui-claims": {
+    "provides": [],
     "requires": [
       {
         "id": "acquisitions-units",
@@ -11806,6 +11909,7 @@
     "optional": []
   },
   "stripes-build": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
@@ -11837,6 +11941,7 @@
     "optional": []
   },
   "ui-mosaic-settings": {
+    "provides": [],
     "requires": [
       {
         "id": "mosaic",
@@ -11869,10 +11974,12 @@
     "optional": []
   },
   "stripes-leipzig-components": {
+    "provides": [],
     "requires": [],
     "optional": []
   },
   "stripes-hub": {
+    "provides": [],
     "requires": [
       {
         "id": "discoveries",
@@ -11990,6 +12097,7 @@
     ]
   },
   "ui-inventory-import": {
+    "provides": [],
     "requires": [
       {
         "id": "inventory-import",

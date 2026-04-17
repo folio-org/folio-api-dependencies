@@ -1,7 +1,6 @@
 {
   "app-platform-minimal": {
     "platform": "base",
-    "dependencies": [],
     "modules": [
       {
         "name": "mod-configuration",
@@ -89,32 +88,11 @@
         "name": "folio_authorization-roles",
         "version": "latest"
       }
-    ]
+    ],
+    "dependencies": []
   },
   "app-platform-complete": {
     "platform": "base",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      },
-      {
-        "name": "app-search",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-notification",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-graphql",
@@ -246,16 +224,32 @@
         "name": "folio_users",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-notification",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-edge-complete": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-complete",
-        "version": "^3.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "edge-connexion",
@@ -286,10 +280,23 @@
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      }
+    ]
   },
   "app-edge-locate": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "edge-inventory",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-platform-complete",
@@ -299,43 +306,26 @@
         "name": "app-acquisitions",
         "version": "^1.2.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "edge-inventory",
-        "version": "latest"
-      }
-    ],
-    "uiModules": []
+    ]
   },
   "app-consortia": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-consortia-keycloak",
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ]
   },
   "app-erm-usage": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-acquisitions",
-        "version": "^1.2.0-SNAPSHOT"
-      },
-      {
-        "name": "app-agreements",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-erm-usage",
@@ -363,20 +353,20 @@
         "name": "folio_plugin-find-erm-usage-data-provider",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      },
+      {
+        "name": "app-agreements",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-dcb": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-complete",
-        "version": "^3.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-dcb",
@@ -391,10 +381,36 @@
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ]
   },
   "app-linked-data": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "mod-linked-data",
+        "version": "latest"
+      },
+      {
+        "name": "mod-linked-data-import",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_ld-folio-wrapper",
+        "version": "latest"
+      }
+    ],
     "dependencies": [
       {
         "name": "app-platform-complete",
@@ -412,26 +428,17 @@
         "name": "app-authority-records",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-linked-data",
-        "version": "latest"
-      },
-      {
-        "name": "mod-linked-data-import",
-        "version": "latest"
-      }
-    ],
-    "uiModules": [
-      {
-        "name": "folio_ld-folio-wrapper",
-        "version": "latest"
-      }
     ]
   },
   "app-marc-migrations": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "mod-marc-migrations",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-platform-minimal",
@@ -453,27 +460,10 @@
         "name": "app-data-import",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-marc-migrations",
-        "version": "latest"
-      }
-    ],
-    "uiModules": []
+    ]
   },
   "app-reading-room": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-complete",
-        "version": "^3.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-reading-room",
@@ -485,10 +475,7 @@
         "name": "folio_reading-room",
         "version": "latest"
       }
-    ]
-  },
-  "app-requests-mediated": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-platform-complete",
@@ -498,17 +485,41 @@
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-requests-mediated": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-requests-mediated",
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ]
   },
   "app-requests-ecs": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "mod-tlr",
+        "version": "latest"
+      },
+      {
+        "name": "mod-circulation-bff",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-platform-complete",
@@ -522,37 +533,33 @@
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-tlr",
-        "version": "latest"
-      },
-      {
-        "name": "mod-circulation-bff",
-        "version": "latest"
-      }
-    ],
-    "uiModules": []
+    ]
   },
   "app-consortia-manager": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-consortia",
-        "version": "^1.4.0-SNAPSHOT"
-      }
-    ],
     "modules": [],
     "uiModules": [
       {
         "name": "folio_consortia-settings",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-consortia",
+        "version": "^1.4.0-SNAPSHOT"
+      }
     ]
   },
   "app-requests-mediated-ui": {
     "platform": "complete",
+    "modules": [],
+    "uiModules": [
+      {
+        "name": "folio_requests-mediated",
+        "version": "latest"
+      }
+    ],
     "dependencies": [
       {
         "name": "app-requests-mediated",
@@ -562,31 +569,10 @@
         "name": "app-requests-ecs",
         "version": "^1.2.0-SNAPSHOT"
       }
-    ],
-    "modules": [],
-    "uiModules": [
-      {
-        "name": "folio_requests-mediated",
-        "version": "latest"
-      }
     ]
   },
   "app-inn-reach": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-complete",
-        "version": "^3.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-inn-reach",
@@ -602,20 +588,24 @@
         "name": "folio_inn-reach",
         "version": "latest"
       }
-    ]
-  },
-  "app-acquisitions": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-platform-complete",
         "version": "^3.0.0-SNAPSHOT"
       },
       {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-acquisitions": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-organizations",
@@ -703,16 +693,20 @@
         "name": "folio_plugin-find-po-line",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-complete",
+        "version": "^3.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-fqm": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-acquisitions",
-        "version": "^1.2.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-fqm-manager",
@@ -728,24 +722,16 @@
         "name": "folio_plugin-query-builder",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      }
     ]
   },
   "app-oai-pmh": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      },
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-oai-pmh",
@@ -761,10 +747,36 @@
         "name": "folio_oai-pmh",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-bulk-edit": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "mod-bulk-operations",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_bulk-edit",
+        "version": "latest"
+      }
+    ],
     "dependencies": [
       {
         "name": "app-fqm",
@@ -786,28 +798,10 @@
         "name": "app-data-import",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-bulk-operations",
-        "version": "latest"
-      }
-    ],
-    "uiModules": [
-      {
-        "name": "folio_bulk-edit",
-        "version": "latest"
-      }
     ]
   },
   "app-reporting": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-reporting",
@@ -819,20 +813,16 @@
         "name": "folio_ldp",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
     ]
   },
   "app-gobi": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-acquisitions",
-        "version": "^1.2.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-gobi",
@@ -844,32 +834,36 @@
         "name": "folio_gobi-settings",
         "version": "latest"
       }
-    ]
-  },
-  "app-ebsconet": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-acquisitions",
         "version": "^1.2.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-ebsconet": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-ebsconet",
         "version": "latest"
       }
     ],
-    "uiModules": []
-  },
-  "app-mosaic": {
-    "platform": "complete",
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-acquisitions",
         "version": "^1.2.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-mosaic": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-mosaic",
@@ -881,16 +875,16 @@
         "name": "folio_mosaic-settings",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      }
     ]
   },
   "app-oa": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-oa",
@@ -902,16 +896,16 @@
         "name": "folio_oa",
         "version": "latest"
       }
-    ]
-  },
-  "app-licenses": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-licenses": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-licenses",
@@ -927,20 +921,16 @@
         "name": "folio_plugin-find-license",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
     ]
   },
   "app-rtac": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-acquisitions",
-        "version": "^1.2.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-rtac",
@@ -951,16 +941,20 @@
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      }
+    ]
   },
   "app-agreements": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-licenses",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-agreements",
@@ -988,16 +982,16 @@
         "name": "folio_erm-comparisons",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-licenses",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-service-interaction": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-service-interaction",
@@ -1009,32 +1003,32 @@
         "name": "folio_service-interaction",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
     ]
   },
   "app-dashboard": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-service-interaction",
-        "version": "^1.0.0-SNAPSHOT"
-      }
-    ],
     "modules": [],
     "uiModules": [
       {
         "name": "folio_dashboard",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-service-interaction",
+        "version": "^1.0.0-SNAPSHOT"
+      }
     ]
   },
   "app-finc": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-acquisitions",
-        "version": "^1.2.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-finc-config",
@@ -1058,16 +1052,16 @@
         "name": "folio_plugin-find-finc-metadata-source",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-acquisitions",
+        "version": "^1.2.0-SNAPSHOT"
+      }
     ]
   },
   "app-lists": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-fqm",
-        "version": "^1.2.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-lists",
@@ -1079,16 +1073,16 @@
         "name": "folio_lists",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-fqm",
+        "version": "^1.2.0-SNAPSHOT"
+      }
     ]
   },
   "app-eholdings": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-kb-ebsco-java",
@@ -1104,28 +1098,16 @@
         "name": "folio_plugin-find-package-title",
         "version": "latest"
       }
-    ]
-  },
-  "app-data-import": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
-      },
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-inventory",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-authority-records",
-        "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-data-import": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-data-import",
@@ -1149,16 +1131,28 @@
         "name": "folio_plugin-find-import-profile",
         "version": "latest"
       }
-    ]
-  },
-  "app-serials-management": {
-    "platform": "complete",
+    ],
     "dependencies": [
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-inventory",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-authority-records",
+        "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-serials-management": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-serials-management",
@@ -1170,10 +1164,28 @@
         "name": "folio_serials-management",
         "version": "latest"
       }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
     ]
   },
   "app-data-export": {
     "platform": "base",
+    "modules": [
+      {
+        "name": "mod-data-export",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [
+      {
+        "name": "folio_data-export",
+        "version": "latest"
+      }
+    ],
     "dependencies": [
       {
         "name": "app-platform-minimal",
@@ -1195,38 +1207,33 @@
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-data-export",
-        "version": "latest"
-      }
-    ],
-    "uiModules": [
-      {
-        "name": "folio_data-export",
-        "version": "latest"
-      }
     ]
   },
   "app-search": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-search",
         "version": "latest"
       }
     ],
-    "uiModules": []
+    "uiModules": [],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      }
+    ]
   },
   "app-rtac-cache": {
     "platform": "complete",
+    "modules": [
+      {
+        "name": "mod-rtac-cache",
+        "version": "latest"
+      }
+    ],
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-rtac",
@@ -1236,23 +1243,10 @@
         "name": "app-inventory",
         "version": "^1.0.0-SNAPSHOT"
       }
-    ],
-    "modules": [
-      {
-        "name": "mod-rtac-cache",
-        "version": "latest"
-      }
-    ],
-    "uiModules": []
+    ]
   },
   "app-marc-storage": {
     "platform": "complete",
-    "dependencies": [
-      {
-        "name": "app-platform-minimal",
-        "version": "^2.1.0-SNAPSHOT"
-      }
-    ],
     "modules": [
       {
         "name": "mod-source-record-storage",
@@ -1263,20 +1257,16 @@
         "version": "latest"
       }
     ],
-    "uiModules": []
-  },
-  "app-quick-marc": {
-    "platform": "complete",
+    "uiModules": [],
     "dependencies": [
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-quick-marc": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-quick-marc",
@@ -1292,16 +1282,20 @@
         "name": "stripes-marc-components",
         "version": "latest"
       }
-    ]
-  },
-  "app-notification": {
-    "platform": "complete",
+    ],
     "dependencies": [
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
+      },
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-notification": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-batch-print",
@@ -1328,28 +1322,16 @@
         "version": "latest"
       }
     ],
-    "uiModules": []
-  },
-  "app-authority-records": {
-    "platform": "complete",
+    "uiModules": [],
     "dependencies": [
       {
         "name": "app-platform-minimal",
         "version": "^2.1.0-SNAPSHOT"
-      },
-      {
-        "name": "app-search",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-marc-storage",
-        "version": "^1.0.0-SNAPSHOT"
-      },
-      {
-        "name": "app-quick-marc",
-        "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-authority-records": {
+    "platform": "complete",
     "modules": [
       {
         "name": "mod-entities-links",
@@ -1369,10 +1351,7 @@
         "name": "folio_stripes-authority-components",
         "version": "latest"
       }
-    ]
-  },
-  "app-inventory": {
-    "platform": "",
+    ],
     "dependencies": [
       {
         "name": "app-platform-minimal",
@@ -1385,8 +1364,15 @@
       {
         "name": "app-marc-storage",
         "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-quick-marc",
+        "version": "^1.0.0-SNAPSHOT"
       }
-    ],
+    ]
+  },
+  "app-inventory": {
+    "platform": "",
     "modules": [
       {
         "name": "mod-inventory",
@@ -1425,6 +1411,20 @@
       {
         "name": "folio_stripes-inventory-components",
         "version": "latest"
+      }
+    ],
+    "dependencies": [
+      {
+        "name": "app-platform-minimal",
+        "version": "^2.1.0-SNAPSHOT"
+      },
+      {
+        "name": "app-search",
+        "version": "^1.0.0-SNAPSHOT"
+      },
+      {
+        "name": "app-marc-storage",
+        "version": "^1.0.0-SNAPSHOT"
       }
     ]
   }
