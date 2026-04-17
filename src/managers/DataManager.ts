@@ -7,8 +7,8 @@ export class DataManager {
 
   async load(): Promise<void> {
     const [modules, apps] = await Promise.all([
-      this.fetcher.fetchJson<ModuleMap>('/data/dependencies.json'),
-      this.fetcher.fetchJson<AppsMap>('/data/apps.json'),
+      this.fetcher.fetchJson<ModuleMap>(`${import.meta.env.BASE_URL}data/dependencies.json`),
+      this.fetcher.fetchJson<AppsMap>(`${import.meta.env.BASE_URL}data/apps.json`),
     ])
     this.store.setModules(modules)
     this.store.setApps(apps)
