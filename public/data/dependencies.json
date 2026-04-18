@@ -2484,7 +2484,7 @@
         "version": "2.0"
       },
       {
-        "id": "finance.fiscal-years",
+        "id": "finance-storage.fiscal-years",
         "version": "3.0"
       }
     ],
@@ -3331,7 +3331,7 @@
     "requires": [
       {
         "id": "rtac-batch",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "login",
@@ -10120,6 +10120,10 @@
         "version": "2.0"
       },
       {
+        "id": "entity-types",
+        "version": "2.1"
+      },
+      {
         "id": "fqm-query",
         "version": "2.1"
       },
@@ -10406,7 +10410,7 @@
       },
       {
         "id": "oa",
-        "version": "2.4"
+        "version": "2.3"
       },
       {
         "id": "oa",
@@ -11986,23 +11990,19 @@
     "requires": [
       {
         "id": "item-storage",
-        "version": "10.2"
-      },
-      {
-        "id": "item-storage",
-        "version": "11.1"
-      },
-      {
-        "id": "holdings-storage",
-        "version": "8.0"
-      },
-      {
-        "id": "instance-storage",
         "version": "11.2"
       },
       {
+        "id": "holdings-storage",
+        "version": "8.2"
+      },
+      {
+        "id": "instance-storage",
+        "version": "11.3"
+      },
+      {
         "id": "loan-types",
-        "version": "2.3"
+        "version": "2.4"
       },
       {
         "id": "material-types",
@@ -12010,11 +12010,11 @@
       },
       {
         "id": "location-units",
-        "version": "2.0"
+        "version": "2.1"
       },
       {
         "id": "locations",
-        "version": "3.1"
+        "version": "3.2"
       },
       {
         "id": "holdings-note-types",
@@ -12022,19 +12022,11 @@
       },
       {
         "id": "loan-storage",
-        "version": "7.1"
-      },
-      {
-        "id": "loan-storage",
-        "version": "7.3"
+        "version": "7.4"
       },
       {
         "id": "circulation",
-        "version": "14.2"
-      },
-      {
-        "id": "circulation",
-        "version": "14.6"
+        "version": "14.7"
       },
       {
         "id": "orders-storage.pieces",
@@ -12043,10 +12035,6 @@
       {
         "id": "user-tenants",
         "version": "1.0"
-      },
-      {
-        "id": "settings",
-        "version": "1.1"
       },
       {
         "id": "settings",
