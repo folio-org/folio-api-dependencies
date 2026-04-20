@@ -9954,16 +9954,8 @@
         "version": "2.0"
       },
       {
-        "id": "fqm-query",
-        "version": "3.0"
-      },
-      {
         "id": "entity-types",
         "version": "2.0"
-      },
-      {
-        "id": "entity-types",
-        "version": "3.0"
       }
     ],
     "optional": []
