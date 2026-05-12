@@ -11962,10 +11962,6 @@
         "version": "1.1"
       },
       {
-        "id": "login",
-        "version": "7.3"
-      },
-      {
         "id": "users-keycloak",
         "version": "1.0"
       }
