@@ -265,6 +265,14 @@
       {
         "id": "users-keycloak",
         "version": "1.0"
+      },
+      {
+        "id": "audit-user",
+        "version": "1.0"
+      },
+      {
+        "id": "audit-config",
+        "version": "1.0"
       }
     ]
   },
