@@ -12065,5 +12065,36 @@
       }
     ],
     "optional": []
+  },
+  "mod-locations": {
+    "provides": [
+      {
+        "id": "location-storage",
+        "version": "1.0"
+      },
+      {
+        "id": "service-point-storage",
+        "version": "1.0"
+      },
+      {
+        "id": "locations-migration",
+        "version": "1.0"
+      },
+      {
+        "id": "_tenant",
+        "version": "2.0"
+      }
+    ],
+    "requires": [],
+    "optional": [
+      {
+        "id": "consortia",
+        "version": "1.0"
+      },
+      {
+        "id": "user-tenants",
+        "version": "1.0"
+      }
+    ]
   }
 }
