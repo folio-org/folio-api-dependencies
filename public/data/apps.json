@@ -282,6 +282,10 @@
       {
         "name": "edge-ncip",
         "version": "latest"
+      },
+      {
+        "name": "edge-erm",
+        "version": "latest"
       }
     ],
     "uiModules": [],
