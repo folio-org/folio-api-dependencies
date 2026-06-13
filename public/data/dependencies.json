@@ -4455,7 +4455,7 @@
     "provides": [
       {
         "id": "template-engine",
-        "version": "2.2"
+        "version": "2.3"
       },
       {
         "id": "_tenant",
