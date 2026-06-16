@@ -9233,10 +9233,6 @@
         "version": "3.2"
       },
       {
-        "id": "settings",
-        "version": "1.0"
-      },
-      {
         "id": "source-storage-batch",
         "version": "1.3"
       }
