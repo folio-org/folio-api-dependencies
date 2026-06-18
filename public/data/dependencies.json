@@ -8533,6 +8533,14 @@
         "version": "2.0"
       },
       {
+        "id": "email",
+        "version": "1.1"
+      },
+      {
+        "id": "template-engine",
+        "version": "2.2"
+      },
+      {
         "id": "users-keycloak",
         "version": "1.0"
       },
@@ -12092,5 +12100,19 @@
         "version": "1.0"
       }
     ]
+  },
+  "edge-ill": {
+    "provides": [],
+    "requires": [
+      {
+        "id": "login",
+        "version": "7.3"
+      },
+      {
+        "id": "ill",
+        "version": "1.0"
+      }
+    ],
+    "optional": []
   }
 }
