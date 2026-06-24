@@ -9630,16 +9630,20 @@
       {
         "id": "locale",
         "version": "1.0"
+      },
+      {
+        "id": "users-bl",
+        "version": "6.1"
+      },
+      {
+        "id": "users-keycloak",
+        "version": "1.0"
       }
     ],
     "optional": [
       {
         "id": "custom-fields",
         "version": "3.0"
-      },
-      {
-        "id": "users-keycloak",
-        "version": "1.0"
       },
       {
         "id": "permissions-users",
