@@ -7594,7 +7594,12 @@
   "stripes-template-editor": {
     "provides": [],
     "requires": [],
-    "optional": []
+    "optional": [
+      {
+        "id": "template-engine",
+        "version": "2.3"
+      }
+    ]
   },
   "ui-plugin-create-inventory-records": {
     "provides": [],
