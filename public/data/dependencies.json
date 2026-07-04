@@ -8120,24 +8120,7 @@
         "version": "2.0"
       }
     ],
-    "requires": [
-      {
-        "id": "login",
-        "version": "7.0"
-      },
-      {
-        "id": "permissions",
-        "version": "5.3"
-      },
-      {
-        "id": "users",
-        "version": "15.3"
-      },
-      {
-        "id": "users",
-        "version": "16.0"
-      }
-    ],
+    "requires": [],
     "optional": [
       {
         "id": "user-tenants",
@@ -8224,6 +8207,10 @@
       {
         "id": "_tenant",
         "version": "1.2"
+      },
+      {
+        "id": "_timer",
+        "version": "1.0"
       }
     ],
     "requires": [
@@ -10596,18 +10583,6 @@
       }
     ],
     "requires": [
-      {
-        "id": "login",
-        "version": "7.3"
-      },
-      {
-        "id": "permissions",
-        "version": "5.6"
-      },
-      {
-        "id": "users",
-        "version": "16.0"
-      },
       {
         "id": "authority-storage",
         "version": "2.0"
