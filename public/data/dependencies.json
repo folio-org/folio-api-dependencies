@@ -8089,7 +8089,7 @@
       },
       {
         "id": "search-linked-data",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "search-facets",
@@ -11125,6 +11125,10 @@
       {
         "id": "service-points",
         "version": "3.4"
+      },
+      {
+        "id": "cancellation-reason-storage",
+        "version": "1.2"
       },
       {
         "id": "ecs-request-transactions",
