@@ -8793,6 +8793,10 @@
       {
         "id": "_tenant",
         "version": "2.0"
+      },
+      {
+        "id": "_timer",
+        "version": "1.0"
       }
     ],
     "requires": [
