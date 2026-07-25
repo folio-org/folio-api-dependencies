@@ -11638,6 +11638,18 @@
       {
         "id": "users",
         "version": "16.4"
+      },
+      {
+        "id": "patron-pin",
+        "version": "1.0"
+      },
+      {
+        "id": "feesfines",
+        "version": "19.1"
+      },
+      {
+        "id": "automated-patron-blocks",
+        "version": "0.1"
       }
     ],
     "optional": []
