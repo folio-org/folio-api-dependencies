@@ -5513,7 +5513,12 @@
         "version": "1.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "text-notify",
+        "version": "1.0"
+      }
+    ]
   },
   "ui-plugin-find-license": {
     "provides": [],
