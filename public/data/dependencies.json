@@ -11608,6 +11608,22 @@
       {
         "id": "loan-storage",
         "version": "7.3"
+      },
+      {
+        "id": "circulation-item",
+        "version": "1.0"
+      },
+      {
+        "id": "inventory",
+        "version": "14.4"
+      },
+      {
+        "id": "declare-item-lost",
+        "version": "0.3"
+      },
+      {
+        "id": "claim-item-returned",
+        "version": "0.2"
       }
     ],
     "optional": [
