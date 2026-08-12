@@ -2872,6 +2872,10 @@
         "version": "3.0"
       },
       {
+        "id": "locale",
+        "version": "1.0"
+      },
+      {
         "id": "location-units",
         "version": "2.0"
       },
@@ -2918,6 +2922,10 @@
       {
         "id": "loan-storage",
         "version": "7.3"
+      },
+      {
+        "id": "loan-policy-storage",
+        "version": "2.4"
       }
     ],
     "optional": []
