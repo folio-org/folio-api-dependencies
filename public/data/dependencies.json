@@ -2607,6 +2607,10 @@
         "version": "1.0"
       },
       {
+        "id": "finance-storage.fiscal-year-hierarchy",
+        "version": "1.0"
+      },
+      {
         "id": "finance-storage.exchange-rate-source",
         "version": "1.0"
       },
@@ -3409,6 +3413,10 @@
         "version": "14.0"
       },
       {
+        "id": "circulation-rules",
+        "version": "1.1"
+      },
+      {
         "id": "feesfines",
         "version": "14.0"
       },
@@ -3479,6 +3487,14 @@
       {
         "id": "holdings-storage",
         "version": "8.0"
+      },
+      {
+        "id": "request-policy-storage",
+        "version": "1.0"
+      },
+      {
+        "id": "locale",
+        "version": "1.0"
       }
     ],
     "optional": [
@@ -3515,6 +3531,10 @@
   "edge-patron": {
     "provides": [],
     "requires": [
+      {
+        "id": "users",
+        "version": "16.4"
+      },
       {
         "id": "patron",
         "version": "6.6"
@@ -3556,7 +3576,12 @@
         "version": "7.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "circulation-bff-users",
+        "version": "1.0"
+      }
+    ]
   },
   "mod-erm-usage": {
     "provides": [
@@ -6132,6 +6157,10 @@
         "version": "2.0"
       },
       {
+        "id": "_timer",
+        "version": "1.0"
+      },
+      {
         "id": "_tenant",
         "version": "2.0"
       }
@@ -7442,6 +7471,10 @@
       {
         "id": "users",
         "version": "16.0"
+      },
+      {
+        "id": "feesfines",
+        "version": "19.1"
       }
     ],
     "optional": []
@@ -10970,8 +11003,24 @@
         "version": "11.0"
       },
       {
+        "id": "holdings-storage",
+        "version": "8.2"
+      },
+      {
         "id": "circulation",
         "version": "14.2"
+      },
+      {
+        "id": "allowed-service-points",
+        "version": "1.2"
+      },
+      {
+        "id": "declare-item-lost",
+        "version": "0.3"
+      },
+      {
+        "id": "claim-item-returned",
+        "version": "0.2"
       },
       {
         "id": "location-units",
@@ -10984,6 +11033,22 @@
       {
         "id": "service-points",
         "version": "3.4"
+      },
+      {
+        "id": "loan-storage",
+        "version": "7.4"
+      },
+      {
+        "id": "loan-policy-storage",
+        "version": "2.4"
+      },
+      {
+        "id": "loan-types",
+        "version": "2.4"
+      },
+      {
+        "id": "material-types",
+        "version": "2.2"
       },
       {
         "id": "search-inventory",
@@ -11009,6 +11074,10 @@
     "optional": [
       {
         "id": "ecs-tlr",
+        "version": "1.0"
+      },
+      {
+        "id": "ecs-request-external",
         "version": "1.0"
       },
       {
