@@ -10543,6 +10543,14 @@
         "version": "3.0"
       },
       {
+        "id": "pieces",
+        "version": "3.1"
+      },
+      {
+        "id": "titles",
+        "version": "1.2"
+      },
+      {
         "id": "orders-storage.pieces",
         "version": "5.0"
       },
