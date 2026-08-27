@@ -1824,7 +1824,7 @@
       },
       {
         "id": "patron-notice",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "_jsonSchemas",
@@ -11364,7 +11364,7 @@
       },
       {
         "id": "users",
-        "version": "16.0"
+        "version": "16.5"
       },
       {
         "id": "users-keycloak",
