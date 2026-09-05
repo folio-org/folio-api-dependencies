@@ -2896,22 +2896,6 @@
         "version": "16.0"
       },
       {
-        "id": "pubsub-event-types",
-        "version": "0.1"
-      },
-      {
-        "id": "pubsub-publishers",
-        "version": "0.1"
-      },
-      {
-        "id": "pubsub-subscribers",
-        "version": "0.1"
-      },
-      {
-        "id": "pubsub-publish",
-        "version": "0.1"
-      },
-      {
         "id": "actual-cost-record-storage",
         "version": "0.7"
       },
