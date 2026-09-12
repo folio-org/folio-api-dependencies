@@ -273,6 +273,10 @@
       {
         "id": "audit-config",
         "version": "1.0"
+      },
+      {
+        "id": "message-delivery",
+        "version": "1.1"
       }
     ]
   },
@@ -2616,6 +2620,10 @@
       },
       {
         "id": "finance-storage.exchange-rate-source",
+        "version": "1.0"
+      },
+      {
+        "id": "finance-storage.settings",
         "version": "1.0"
       },
       {
@@ -11836,7 +11844,9 @@
       {
         "id": "patron-pin",
         "version": "1.0"
-      },
+      }
+    ],
+    "optional": [
       {
         "id": "feesfines",
         "version": "19.1"
@@ -11845,8 +11855,7 @@
         "id": "automated-patron-blocks",
         "version": "0.1"
       }
-    ],
-    "optional": []
+    ]
   },
   "edge-inventory": {
     "provides": [],
