@@ -1366,6 +1366,10 @@
       {
         "id": "inventory-settings",
         "version": "1.0"
+      },
+      {
+        "id": "instance-custom-links",
+        "version": "1.0"
       }
     ],
     "requires": [
