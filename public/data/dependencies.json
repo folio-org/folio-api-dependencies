@@ -1177,7 +1177,7 @@
       },
       {
         "id": "instance-storage",
-        "version": "11.4"
+        "version": "11.5"
       },
       {
         "id": "instance-preceding-succeeding-titles",
@@ -2983,6 +2983,10 @@
       {
         "id": "licenses",
         "version": "6.1"
+      },
+      {
+        "id": "eholdings",
+        "version": "4.0"
       },
       {
         "id": "eholdings",
