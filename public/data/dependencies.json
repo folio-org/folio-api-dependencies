@@ -1023,7 +1023,7 @@
       },
       {
         "id": "instance-storage",
-        "version": "11.3"
+        "version": "11.5"
       },
       {
         "id": "instance-storage-batch-sync",
@@ -2764,6 +2764,10 @@
         "version": "1.0"
       },
       {
+        "id": "finance-storage.settings",
+        "version": "1.0"
+      },
+      {
         "id": "finance.transactions",
         "version": "6.0"
       },
@@ -3611,7 +3615,7 @@
     "provides": [
       {
         "id": "usage-data-providers",
-        "version": "3.2"
+        "version": "3.3"
       },
       {
         "id": "aggregator-settings",
@@ -3640,10 +3644,6 @@
   "ui-erm-usage": {
     "provides": [],
     "requires": [
-      {
-        "id": "aggregator-settings",
-        "version": "2.0"
-      },
       {
         "id": "counter-reports",
         "version": "5.0"
