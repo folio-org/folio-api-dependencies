@@ -445,7 +445,7 @@
       },
       {
         "id": "check-in-storage",
-        "version": "0.2"
+        "version": "0.3"
       },
       {
         "id": "checkout-lock-storage",
@@ -2935,6 +2935,10 @@
       {
         "id": "usage-data-providers",
         "version": "3.0"
+      },
+      {
+        "id": "usage-data-providers",
+        "version": "4.0"
       },
       {
         "id": "licenses",
@@ -8067,7 +8071,7 @@
       },
       {
         "id": "search-inventory",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "search-authorities",
@@ -8260,7 +8264,7 @@
     "provides": [
       {
         "id": "data-export-spring",
-        "version": "2.0"
+        "version": "2.1"
       },
       {
         "id": "_tenant",
