@@ -393,7 +393,7 @@
       },
       {
         "id": "loan-policy-storage",
-        "version": "2.4"
+        "version": "2.5"
       },
       {
         "id": "request-storage",
@@ -3364,7 +3364,7 @@
     "provides": [
       {
         "id": "patron",
-        "version": "6.6"
+        "version": "6.7"
       },
       {
         "id": "patron.settings",
@@ -7372,7 +7372,7 @@
     "provides": [
       {
         "id": "automated-patron-blocks",
-        "version": "0.1"
+        "version": "0.2"
       },
       {
         "id": "user-summary",
