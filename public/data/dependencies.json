@@ -452,6 +452,10 @@
         "version": "0.1"
       },
       {
+        "id": "request-queue-lock-storage",
+        "version": "1.0"
+      },
+      {
         "id": "print-events-storage",
         "version": "1.0"
       },
@@ -835,6 +839,10 @@
       {
         "id": "checkout-lock-storage",
         "version": "0.1"
+      },
+      {
+        "id": "request-queue-lock-storage",
+        "version": "1.0"
       },
       {
         "id": "search-inventory",
