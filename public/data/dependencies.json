@@ -3525,7 +3525,7 @@
       },
       {
         "id": "patron",
-        "version": "6.6"
+        "version": "6.7"
       },
       {
         "id": "circulation",
@@ -10733,7 +10733,7 @@
     "provides": [
       {
         "id": "users-keycloak",
-        "version": "1.1"
+        "version": "1.2"
       },
       {
         "id": "_tenant",
@@ -10743,7 +10743,7 @@
     "requires": [
       {
         "id": "users",
-        "version": "16.5"
+        "version": "16.6"
       },
       {
         "id": "permissions",
