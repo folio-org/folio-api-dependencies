@@ -9872,6 +9872,10 @@
         "version": "1.2"
       },
       {
+        "id": "instance-custom-links",
+        "version": "1.0"
+      },
+      {
         "id": "instance-formats",
         "version": "2.0"
       },
