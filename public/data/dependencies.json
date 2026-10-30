@@ -622,7 +622,7 @@
     "requires": [
       {
         "id": "loan-storage",
-        "version": "7.3"
+        "version": "7.5"
       },
       {
         "id": "circulation-rules-storage",
