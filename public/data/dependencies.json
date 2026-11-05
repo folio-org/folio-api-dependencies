@@ -1880,11 +1880,7 @@
       },
       {
         "id": "loan-policy-storage",
-        "version": "1.0"
-      },
-      {
-        "id": "loan-policy-storage",
-        "version": "2.0"
+        "version": "2.5"
       },
       {
         "id": "staff-slips-storage",
@@ -3579,7 +3575,7 @@
       },
       {
         "id": "counter-reports",
-        "version": "5.0"
+        "version": "5.1"
       },
       {
         "id": "custom-reports",
