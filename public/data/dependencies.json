@@ -384,6 +384,10 @@
         "version": "0.1"
       },
       {
+        "id": "loan-anonymization-preference-storage",
+        "version": "1.0"
+      },
+      {
         "id": "circulation-rules-storage",
         "version": "1.0"
       },
@@ -823,6 +827,10 @@
       {
         "id": "anonymize-storage-loans",
         "version": "0.1"
+      },
+      {
+        "id": "loan-anonymization-preference-storage",
+        "version": "1.0"
       },
       {
         "id": "identifier-types",
