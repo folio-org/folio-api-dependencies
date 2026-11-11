@@ -5590,11 +5590,7 @@
       },
       {
         "id": "counter-reports",
-        "version": "4.0"
-      },
-      {
-        "id": "counter-reports",
-        "version": "5.0"
+        "version": "5.1"
       }
     ],
     "optional": [
@@ -9028,34 +9024,6 @@
         "version": "1.0"
       }
     ]
-  },
-  "mod-remote-sync": {
-    "provides": [
-      {
-        "id": "remote-sync",
-        "version": "${info.app.minorVersion}"
-      },
-      {
-        "id": "_tenant",
-        "version": "1.2"
-      },
-      {
-        "id": "_timer",
-        "version": "1.0"
-      }
-    ],
-    "requires": [],
-    "optional": []
-  },
-  "ui-remote-sync": {
-    "provides": [],
-    "requires": [
-      {
-        "id": "remote-sync",
-        "version": "2.0"
-      }
-    ],
-    "optional": []
   },
   "mod-oa": {
     "provides": [
