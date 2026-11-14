@@ -7382,7 +7382,16 @@
         "version": "1.0"
       }
     ],
-    "optional": []
+    "optional": [
+      {
+        "id": "users",
+        "version": "15.1"
+      },
+      {
+        "id": "users",
+        "version": "16.0"
+      }
+    ]
   },
   "mod-patron-blocks": {
     "provides": [
