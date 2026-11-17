@@ -126,7 +126,7 @@
     "requires": [
       {
         "id": "users",
-        "version": "16.5"
+        "version": "16.6"
       },
       {
         "id": "users.settings",
@@ -267,8 +267,12 @@
         "version": "1.6"
       },
       {
-        "id": "users-keycloak",
+        "id": "circulation-settings",
         "version": "1.0"
+      },
+      {
+        "id": "users-keycloak",
+        "version": "1.2"
       },
       {
         "id": "audit-user",
@@ -1877,6 +1881,10 @@
       {
         "id": "circulation",
         "version": "14.0"
+      },
+      {
+        "id": "circulation-settings",
+        "version": "1.0"
       },
       {
         "id": "configuration",
@@ -3606,7 +3614,7 @@
     "requires": [
       {
         "id": "counter-reports",
-        "version": "5.0"
+        "version": "5.1"
       },
       {
         "id": "custom-reports",
