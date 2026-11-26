@@ -11505,7 +11505,7 @@
     "provides": [
       {
         "id": "reading-room",
-        "version": "1.0"
+        "version": "1.1"
       },
       {
         "id": "reading-room-patron-permission",
@@ -11623,7 +11623,7 @@
       },
       {
         "id": "circulation-bff-loans",
-        "version": "1.6"
+        "version": "1.7"
       },
       {
         "id": "circulation-bff-inventory",
